@@ -14,6 +14,16 @@ const TUTORIAL_FEEDS = [
   { name: "Machine Learning Mastery", url: "https://machinelearningmastery.com/feed/", category: "Principiantes" },
 ];
 
+const APP_FEEDS = [
+  { name: "Product Hunt AI", url: "https://www.producthunt.com/feed/ai-tools", category: "Productividad" },
+  { name: "AI Tool Report", url: "https://aitoolreport.com/feed/", category: "Herramientas" },
+];
+
+const PROMPT_FEEDS = [
+  { name: "FlowGPT", url: "https://flowgpt.com/feed", category: "Comunidad" },
+  { name: "PromptBase Blog", url: "https://promptbase.com/blog/rss.xml", category: "Marketplace" },
+];
+
 const TUTORIALS = [
   { title: "Empezando con ChatGPT: trucos básicos", category: "Principiantes", summary: "Conceptos clave, ejemplos y buenas prácticas para tus primeros pasos.", url: "https://chat.openai.com/" },
   { title: "Automatiza tareas con IA y Zapier", category: "Automatización", summary: "Conecta apps y crea flujos con IA para ahorrar tiempo.", url: "https://zapier.com/" },
@@ -147,11 +157,43 @@ function renderTutorials(data) {
   });
 }
 
-function renderApps(data) {
-  const catSel = el("#appCategorySelect");
-  const cats = Array.from(new Set(data.map((d) => d.category)));
-  cats.forEach((c) => { const opt = document.createElement("option"); opt.value = c; opt.textContent = c; catSel.appendChild(opt); });
+async function fetchAppFeeds() {
+  const catSelect = el("#appCategorySelect");
+  const results = [];
+  
+  await Promise.all(
+    APP_FEEDS.map(async (f) => {
+      try {
+        const items = await fetchFeed(f.url);
+        const tagged = items.slice(0, 6).map((it) => ({
+          name: it.title,
+          url: it.link,
+          category: f.category,
+          review: it.summary ? it.summary.substring(0, 150) + "..." : "Nueva herramienta de IA recomendada.",
+        }));
+        results.push(...tagged);
+      } catch (e) {
+        console.warn("App feed fail:", f.name, e.message);
+      }
+    })
+  );
 
+  // Merge with static apps
+  const allApps = [...APPS, ...results];
+  
+  // Populate categories
+  const cats = Array.from(new Set(allApps.map((d) => d.category)));
+  cats.forEach((c) => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    catSelect.appendChild(opt);
+  });
+
+  renderApps(allApps);
+}
+
+function renderApps(data) {
   const list = el("#appsList");
   list.innerHTML = "";
   data.forEach((a) => {
@@ -166,11 +208,41 @@ function renderApps(data) {
   });
 }
 
-function renderPrompts(data) {
-  const catSel = el("#promptCategorySelect");
-  const cats = Array.from(new Set(data.map((d) => d.category)));
-  cats.forEach((c) => { const opt = document.createElement("option"); opt.value = c; opt.textContent = c; catSel.appendChild(opt); });
+async function fetchPromptFeeds() {
+  const catSelect = el("#promptCategorySelect");
+  const results = [];
+  
+  await Promise.all(
+    PROMPT_FEEDS.map(async (f) => {
+      try {
+        const items = await fetchFeed(f.url);
+        const tagged = items.slice(0, 6).map((it) => ({
+          text: it.title + (it.summary ? ": " + it.summary.substring(0, 100) : ""),
+          category: f.category,
+        }));
+        results.push(...tagged);
+      } catch (e) {
+        console.warn("Prompt feed fail:", f.name, e.message);
+      }
+    })
+  );
 
+  // Merge with static prompts
+  const allPrompts = [...PROMPTS, ...results];
+  
+  // Populate categories
+  const cats = Array.from(new Set(allPrompts.map((d) => d.category)));
+  cats.forEach((c) => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    catSelect.appendChild(opt);
+  });
+
+  renderPrompts(allPrompts);
+}
+
+function renderPrompts(data) {
   const list = el("#promptsList");
   list.innerHTML = "";
   data.forEach((p) => {
@@ -242,10 +314,8 @@ function initEvents() {
 }
 
 async function init() {
-  renderApps(APPS);
-  renderPrompts(PROMPTS);
   initEvents();
-  await Promise.all([fetchFeeds(), fetchTutorialFeeds()]);
+  await Promise.all([fetchFeeds(), fetchTutorialFeeds(), fetchAppFeeds(), fetchPromptFeeds()]);
 }
 
 // Boot
