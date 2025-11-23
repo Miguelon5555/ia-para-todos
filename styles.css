@@ -1,11 +1,14 @@
 * { box-sizing: border-box; }
 :root {
-  --bg: #0b0c10;
-  --card: #151720;
-  --text: #eaeef3;
-  --muted: #b8c1cc;
-  --accent: #61dafb;
-  --link: #7fd1b9;
+  --bg: #e3f2fd;
+  --card: #ffffff;
+  --text: #1565c0;
+  --muted: #546e7a;
+  --accent: #2196f3;
+  --link: #1976d2;
+  --header-bg: #bbdefb;
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --border: rgba(33, 150, 243, 0.3);
 }
 html, body { height: 100%; }
 body {
@@ -15,41 +18,40 @@ body {
   color: var(--text);
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 1rem; }
-.site-header { border-bottom: 1px solid #222; background: #0d1016; }
-.site-header h1 { margin: 0.2rem 0; }
+.site-header { border-bottom: 1px solid var(--border); background: var(--header-bg); }
+.site-header h1 { margin: 0.2rem 0; color: var(--text); }
 .tagline { color: var(--muted); margin: 0.2rem 0 0.6rem; }
 .nav { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .nav a { color: var(--accent); text-decoration: none; font-weight: 600; }
 .tools { margin-top: 0.8rem; display: flex; gap: 0.5rem; }
 .tools input[type="search"] {
-  flex: 1; padding: 0.6rem 0.8rem; border-radius: 8px; border: 1px solid #555; background: #1f2937; color: #eaeef3;
+  flex: 1; padding: 0.6rem 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text); backdrop-filter: blur(10px);
 }
-.tools input[type="search"]::placeholder { color: #9ca3af; }
-.tools button { padding: 0.6rem 0.8rem; border-radius: 8px; border: 1px solid #333; background: #1a1f2b; color: var(--text); cursor: pointer; }
-.tools button:hover { background: #252b3a; }
+.tools input[type="search"]::placeholder { color: var(--muted); opacity: 0.7; }
+.tools button { padding: 0.6rem 0.8rem; border-radius: 8px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text); cursor: pointer; backdrop-filter: blur(10px); font-weight: 500; }
+.tools button:hover { background: rgba(255, 255, 255, 0.9); border-color: var(--accent); }
 
 main section { margin: 1.5rem 0; }
 .section-note { color: var(--muted); margin-top: -0.4rem; }
 .filters { margin: 0.8rem 0; }
-select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid #555; background: #1f2937; color: #eaeef3; }
-select option { background: #1f2937; color: #eaeef3; }
+select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text); backdrop-filter: blur(10px); font-weight: 500; }
+select option { background: #ffffff; color: var(--text); }
 
 .card-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
 .card {
-  background: var(--card); border: 1px solid #222; border-radius: 12px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
 }
-.card h3 { margin: 0; font-size: 1.05rem; }
+.card h3 { margin: 0; font-size: 1.05rem; color: var(--text); }
 .card p { margin: 0.1rem 0; color: var(--muted); }
 .card .meta { font-size: 0.85rem; color: var(--muted); }
 .card a { color: var(--link); text-decoration: none; }
 .card a:hover { text-decoration: underline; }
-.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: #1a1f2b; border: 1px solid #2a3142; color: var(--muted); font-size: 0.75rem; }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: #e3f2fd; border: 1px solid var(--border); color: var(--text); font-size: 0.75rem; font-weight: 600; }
 
-.site-footer { border-top: 1px solid #222; background: #0d1016; }
+.site-footer { border-top: 1px solid var(--border); background: var(--header-bg); }
 .site-footer .small { color: var(--muted); }
+.site-footer a { color: var(--link); }
 
 @media (prefers-color-scheme: light) {
-  :root { --bg: #f6f7fb; --card: #fff; --text: #0b0c10; --muted: #4b5563; --accent: #2563eb; --link: #0ea5e9; }
-  body { background: var(--bg); color: var(--text); }
-  .site-header, .site-footer { background: #eef2f7; }
+  /* Light mode is now the default */
 }
