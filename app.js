@@ -2,26 +2,26 @@
 const FEEDS = [
   { name: "OpenAI", url: "https://openai.com/blog/rss.xml" },
   { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/" },
-  { name: "The Verge AI", url: "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml" },
   { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/" },
   { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml" },
+  { name: "VentureBeat AI", url: "https://venturebeat.com/category/ai/feed/" },
 ];
 
 const TUTORIAL_FEEDS = [
   { name: "Hugging Face Blog", url: "https://huggingface.co/blog/feed.xml", category: "ML/AI" },
-  { name: "Towards Data Science", url: "https://towardsdatascience.com/feed", category: "Data Science" },
-  { name: "OpenAI Cookbook", url: "https://cookbook.openai.com/feed.xml", category: "OpenAI" },
   { name: "Machine Learning Mastery", url: "https://machinelearningmastery.com/feed/", category: "Principiantes" },
+  { name: "Analytics Vidhya", url: "https://www.analyticsvidhya.com/feed/", category: "Data Science" },
+  { name: "AI News", url: "https://artificialintelligence-news.com/feed/", category: "Noticias IA" },
 ];
 
 const APP_FEEDS = [
-  { name: "Product Hunt AI", url: "https://www.producthunt.com/feed/ai-tools", category: "Productividad" },
-  { name: "AI Tool Report", url: "https://aitoolreport.com/feed/", category: "Herramientas" },
+  { name: "AI Tools Blog", url: "https://www.futurepedia.io/feed", category: "Herramientas" },
+  { name: "There's An AI", url: "https://theresanai.com/feed", category: "Productividad" },
 ];
 
 const PROMPT_FEEDS = [
-  { name: "FlowGPT", url: "https://flowgpt.com/feed", category: "Comunidad" },
-  { name: "PromptBase Blog", url: "https://promptbase.com/blog/rss.xml", category: "Marketplace" },
+  { name: "AI Prompts Blog", url: "https://www.aiprompts.com/feed/", category: "Comunidad" },
+  { name: "Prompt Engineering", url: "https://learnprompting.org/feed.xml", category: "Educación" },
 ];
 
 const TUTORIALS = [
