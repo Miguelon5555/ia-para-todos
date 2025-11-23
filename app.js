@@ -1,6 +1,7 @@
 // Data — editable content
 const FEEDS = [
   { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml", lang: "es" },
+  { name: "NeuraNews (iSocialWeb)", url: "https://www.newsletter.isocialweb.agency/feed", lang: "es" },
   { name: "OpenAI", url: "https://openai.com/blog/rss.xml", lang: "en" },
   { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/", lang: "en" },
   { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/", lang: "en" },
