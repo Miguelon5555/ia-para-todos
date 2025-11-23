@@ -1,10 +1,10 @@
 // Data — editable content
 const FEEDS = [
-  { name: "OpenAI", url: "https://openai.com/blog/rss.xml" },
-  { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/" },
-  { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/" },
-  { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml" },
-  { name: "VentureBeat AI", url: "https://venturebeat.com/category/ai/feed/" },
+  { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml", lang: "es" },
+  { name: "OpenAI", url: "https://openai.com/blog/rss.xml", lang: "en" },
+  { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/", lang: "en" },
+  { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/", lang: "en" },
+  { name: "VentureBeat AI", url: "https://venturebeat.com/category/ai/feed/", lang: "en" },
 ];
 
 const TUTORIAL_FEEDS = [
@@ -97,8 +97,13 @@ async function fetchFeeds() {
     })
   );
 
-  // sort by date desc
-  results.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+  // sort by language first (español primero), then by date
+  results.sort((a, b) => {
+    const langA = FEEDS.find(f => f.name === a.source)?.lang || 'en';
+    const langB = FEEDS.find(f => f.name === b.source)?.lang || 'en';
+    if (langA !== langB) return langA === 'es' ? -1 : 1;
+    return new Date(b.pubDate) - new Date(a.pubDate);
+  });
   renderNews(results);
 }
 
