@@ -1,0 +1,252 @@
+// Data — editable content
+const FEEDS = [
+  { name: "OpenAI", url: "https://openai.com/blog/rss.xml" },
+  { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/" },
+  { name: "The Verge AI", url: "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml" },
+  { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/" },
+  { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml" },
+];
+
+const TUTORIAL_FEEDS = [
+  { name: "Hugging Face Blog", url: "https://huggingface.co/blog/feed.xml", category: "ML/AI" },
+  { name: "Towards Data Science", url: "https://towardsdatascience.com/feed", category: "Data Science" },
+  { name: "OpenAI Cookbook", url: "https://cookbook.openai.com/feed.xml", category: "OpenAI" },
+  { name: "Machine Learning Mastery", url: "https://machinelearningmastery.com/feed/", category: "Principiantes" },
+];
+
+const TUTORIALS = [
+  { title: "Empezando con ChatGPT: trucos básicos", category: "Principiantes", summary: "Conceptos clave, ejemplos y buenas prácticas para tus primeros pasos.", url: "https://chat.openai.com/" },
+  { title: "Automatiza tareas con IA y Zapier", category: "Automatización", summary: "Conecta apps y crea flujos con IA para ahorrar tiempo.", url: "https://zapier.com/" },
+  { title: "Prompt Engineering: guía breve", category: "Prompts", summary: "Estructuras útiles para prompts claros y reutilizables.", url: "https://www.deeplearning.ai/short-courses/" },
+  { title: "Vision AI en tu móvil", category: "Multimedia", summary: "Usa apps para reconocimiento de imagen y OCR con IA.", url: "https://lens.google/" },
+];
+
+const APPS = [
+  { name: "Notion AI", category: "Productividad", review: "Excelente para resumir, reescribir y generar contenido en tus notas.", url: "https://www.notion.so/product/ai" },
+  { name: "Perplexity", category: "Búsqueda", review: "Respuestas con fuentes y muy buenas capacidades de exploración.", url: "https://www.perplexity.ai/" },
+  { name: "Midjourney", category: "Imagen", review: "Para generar imágenes creativas con prompts. Resultados sorprendentes.", url: "https://www.midjourney.com/" },
+  { name: "CapCut", category: "Video", review: "Herramientas asistidas por IA para edición rápida y subtítulos.", url: "https://www.capcut.com/" },
+];
+
+const PROMPTS = [
+  { text: "Explícame este tema como si tuviera 12 años: [tema]", category: "Aprendizaje" },
+  { text: "Actúa como asesor de productividad y crea un plan diario basado en estas tareas: [lista]", category: "Productividad" },
+  { text: "Genera ideas de contenido para redes sobre [tema] en un tono casual y cercano", category: "Contenido" },
+  { text: "Analiza este texto y crea un resumen accionable en 5 viñetas", category: "Resumen" },
+  { text: "Propón 3 mejoras concretas para este proceso: [descripción]", category: "Mejora" },
+];
+
+// Helpers
+const el = (sel) => document.querySelector(sel);
+const formatDate = (d) => new Date(d).toLocaleDateString("es-ES", { year: "numeric", month: "short", day: "numeric" });
+
+// RSS fetch using RSS2JSON to bypass CORS
+async function fetchFeed(url) {
+  const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
+  const res = await fetch(proxy);
+  if (!res.ok) throw new Error(`Feed error: ${url}`);
+  const data = await res.json();
+  if (data.status !== 'ok') throw new Error(`Feed parse error: ${url}`);
+  return data.items.map(item => ({
+    title: item.title || "(sin título)",
+    link: item.link || "",
+    pubDate: item.pubDate || new Date().toISOString(),
+    summary: item.description ? item.description.replace(/<[^>]*>/g, "").substring(0, 200) : "",
+  }));
+}
+
+async function fetchFeeds() {
+  const sourceSelect = el("#newsSourceFilter");
+  // populate sources
+  FEEDS.forEach((f) => {
+    const opt = document.createElement("option");
+    opt.value = f.name; opt.textContent = f.name; sourceSelect.appendChild(opt);
+  });
+
+  const results = [];
+  await Promise.all(
+    FEEDS.map(async (f) => {
+      try {
+        const items = await fetchFeed(f.url);
+        const tagged = items.slice(0, 10).map((it) => ({ ...it, source: f.name }));
+        results.push(...tagged);
+      } catch (e) {
+        console.warn("Feed fail:", f.name, e.message);
+      }
+    })
+  );
+
+  // sort by date desc
+  results.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+  renderNews(results);
+}
+
+function renderNews(items) {
+  const list = el("#newsList");
+  list.innerHTML = "";
+  items.forEach((it) => {
+    const li = document.createElement("li");
+    li.className = "card";
+    li.innerHTML = `
+      <h3><a href="${it.link}" target="_blank" rel="noopener">${it.title}</a></h3>
+      <p class="meta">${it.source} · ${formatDate(it.pubDate)}</p>
+      ${it.summary ? `<p>${it.summary.replace(/<[^>]*>/g, "")}</p>` : ""}
+    `;
+    list.appendChild(li);
+  });
+}
+
+async function fetchTutorialFeeds() {
+  const catSelect = el("#tutorialCategorySelect");
+  const results = [];
+  
+  await Promise.all(
+    TUTORIAL_FEEDS.map(async (f) => {
+      try {
+        const items = await fetchFeed(f.url);
+        const tagged = items.slice(0, 8).map((it) => ({
+          title: it.title,
+          url: it.link,
+          category: f.category,
+          summary: it.summary || "Tutorial sobre IA y machine learning.",
+        }));
+        results.push(...tagged);
+      } catch (e) {
+        console.warn("Tutorial feed fail:", f.name, e.message);
+      }
+    })
+  );
+
+  // Merge with static tutorials
+  const allTutorials = [...TUTORIALS, ...results];
+  
+  // Populate categories
+  const cats = Array.from(new Set(allTutorials.map((d) => d.category)));
+  cats.forEach((c) => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    catSelect.appendChild(opt);
+  });
+
+  renderTutorials(allTutorials);
+}
+
+function renderTutorials(data) {
+  const list = el("#tutorialsList");
+  list.innerHTML = "";
+  data.forEach((t) => {
+    const li = document.createElement("li");
+    li.className = "card";
+    li.innerHTML = `
+      <h3><a href="${t.url}" target="_blank" rel="noopener">${t.title}</a></h3>
+      <span class="badge">${t.category}</span>
+      <p>${t.summary}</p>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function renderApps(data) {
+  const catSel = el("#appCategorySelect");
+  const cats = Array.from(new Set(data.map((d) => d.category)));
+  cats.forEach((c) => { const opt = document.createElement("option"); opt.value = c; opt.textContent = c; catSel.appendChild(opt); });
+
+  const list = el("#appsList");
+  list.innerHTML = "";
+  data.forEach((a) => {
+    const li = document.createElement("li");
+    li.className = "card";
+    li.innerHTML = `
+      <h3><a href="${a.url}" target="_blank" rel="noopener">${a.name}</a></h3>
+      <span class="badge">${a.category}</span>
+      <p>${a.review}</p>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function renderPrompts(data) {
+  const catSel = el("#promptCategorySelect");
+  const cats = Array.from(new Set(data.map((d) => d.category)));
+  cats.forEach((c) => { const opt = document.createElement("option"); opt.value = c; opt.textContent = c; catSel.appendChild(opt); });
+
+  const list = el("#promptsList");
+  list.innerHTML = "";
+  data.forEach((p) => {
+    const li = document.createElement("li");
+    li.className = "card";
+    li.innerHTML = `
+      <p>${p.text}</p>
+      <span class="badge">${p.category}</span>
+    `;
+    list.appendChild(li);
+  });
+}
+
+// Search and filter logic
+function applyFilters() {
+  const q = el("#searchInput").value.trim().toLowerCase();
+  const newsSource = el("#newsSourceFilter").value;
+  const tutCat = el("#tutorialCategorySelect").value;
+  const appCat = el("#appCategorySelect").value;
+  const promptCat = el("#promptCategorySelect").value;
+
+  // Filter news
+  const newsCards = [...el("#newsList").children];
+  newsCards.forEach((card) => {
+    const text = card.textContent.toLowerCase();
+    const sourceText = card.querySelector(".meta")?.textContent || "";
+    const sourceMatch = !newsSource || sourceText.includes(newsSource);
+    const searchMatch = !q || text.includes(q);
+    card.style.display = sourceMatch && searchMatch ? "" : "none";
+  });
+
+  // Filter tutorials
+  const tutCards = [...el("#tutorialsList").children];
+  tutCards.forEach((card) => {
+    const text = card.textContent.toLowerCase();
+    const badge = card.querySelector(".badge")?.textContent || "";
+    const catMatch = !tutCat || badge === tutCat;
+    const searchMatch = !q || text.includes(q);
+    card.style.display = catMatch && searchMatch ? "" : "none";
+  });
+
+  // Filter apps
+  const appCards = [...el("#appsList").children];
+  appCards.forEach((card) => {
+    const text = card.textContent.toLowerCase();
+    const badge = card.querySelector(".badge")?.textContent || "";
+    const catMatch = !appCat || badge === appCat;
+    const searchMatch = !q || text.includes(q);
+    card.style.display = catMatch && searchMatch ? "" : "none";
+  });
+
+  // Filter prompts
+  const promptCards = [...el("#promptsList").children];
+  promptCards.forEach((card) => {
+    const text = card.textContent.toLowerCase();
+    const badge = card.querySelector(".badge")?.textContent || "";
+    const catMatch = !promptCat || badge === promptCat;
+    const searchMatch = !q || text.includes(q);
+    card.style.display = catMatch && searchMatch ? "" : "none";
+  });
+}
+
+function initEvents() {
+  ["#searchInput", "#newsSourceFilter", "#tutorialCategorySelect", "#appCategorySelect", "#promptCategorySelect"].forEach((sel) => {
+    el(sel).addEventListener("input", applyFilters);
+    el(sel).addEventListener("change", applyFilters);
+  });
+  el("#clearSearch").addEventListener("click", () => { el("#searchInput").value = ""; applyFilters(); });
+}
+
+async function init() {
+  renderApps(APPS);
+  renderPrompts(PROMPTS);
+  initEvents();
+  await Promise.all([fetchFeeds(), fetchTutorialFeeds()]);
+}
+
+// Boot
+init();

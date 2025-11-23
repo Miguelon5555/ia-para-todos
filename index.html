@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IA para todos</title>
+  <meta name="description" content="Blog casual sobre inteligencia artificial: noticias diarias, tutoriales, apps recomendadas y prompts útiles." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>IA para todos</h1>
+      <p class="tagline">Noticias, tutoriales, apps y prompts — en tono casual.</p>
+      <nav class="nav">
+        <a href="#noticias">Noticias</a>
+        <a href="#tutoriales">Tutoriales</a>
+        <a href="#apps">Apps recomendadas</a>
+        <a href="#prompts">Prompts útiles</a>
+      </nav>
+      <div class="tools">
+        <input id="searchInput" type="search" placeholder="Buscar en todo el sitio..." aria-label="Buscar" />
+        <button id="clearSearch" title="Limpiar búsqueda">Limpiar</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="noticias" aria-labelledby="news-title">
+      <h2 id="news-title">Noticias diarias</h2>
+      <p class="section-note">Se actualiza automáticamente desde feeds de IA y tecnología.</p>
+      <div class="filters">
+        <label>
+          Fuente:
+          <select id="newsSourceFilter">
+            <option value="">Todas</option>
+          </select>
+        </label>
+      </div>
+      <ul id="newsList" class="card-list" aria-live="polite"></ul>
+    </section>
+
+    <section id="tutoriales" aria-labelledby="tutorials-title">
+      <h2 id="tutorials-title">Tutoriales</h2>
+      <div class="filters">
+        <label>
+          Categoría:
+          <select id="tutorialCategorySelect">
+            <option value="">Todas</option>
+          </select>
+        </label>
+      </div>
+      <ul id="tutorialsList" class="card-list"></ul>
+    </section>
+
+    <section id="apps" aria-labelledby="apps-title">
+      <h2 id="apps-title">Apps recomendadas</h2>
+      <p class="section-note">Reseñas breves con enlace a cada app.</p>
+      <div class="filters">
+        <label>
+          Categoría:
+          <select id="appCategorySelect">
+            <option value="">Todas</option>
+          </select>
+        </label>
+      </div>
+      <ul id="appsList" class="card-list"></ul>
+    </section>
+
+    <section id="prompts" aria-labelledby="prompts-title">
+      <h2 id="prompts-title">Prompts útiles</h2>
+      <div class="filters">
+        <label>
+          Categoría:
+          <select id="promptCategorySelect">
+            <option value="">Todas</option>
+          </select>
+        </label>
+      </div>
+      <ul id="promptsList" class="card-list"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>¿Tienes algo que contarme? Escríbeme a mi buzón:
+        <a id="contactLink" href="mailto:cacharritos2002@gmail.com">cacharritos2002@gmail.com</a>
+      </p>
+      <p class="small">Hecho con cariño y café ☕️ — IA sin complicaciones.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+cd "/Users/miguelesteban/Blog IA para todos" && python3 -m http.server 8000
+cd "/Users/miguelesteban/Blog IA para todos" && python3 -m http.server 8000
