@@ -15,13 +15,11 @@ const TUTORIAL_FEEDS = [
 ];
 
 const APP_FEEDS = [
-  { name: "AI Tools Blog", url: "https://www.futurepedia.io/feed", category: "Herramientas" },
-  { name: "There's An AI", url: "https://theresanai.com/feed", category: "Productividad" },
+  // Los feeds de apps no funcionan bien con RSS2JSON, usamos contenido estático enriquecido
 ];
 
 const PROMPT_FEEDS = [
-  { name: "AI Prompts Blog", url: "https://www.aiprompts.com/feed/", category: "Comunidad" },
-  { name: "Prompt Engineering", url: "https://learnprompting.org/feed.xml", category: "Educación" },
+  // Los feeds de prompts no funcionan bien con RSS2JSON, usamos contenido estático enriquecido
 ];
 
 const TUTORIALS = [
@@ -36,6 +34,12 @@ const APPS = [
   { name: "Perplexity", category: "Búsqueda", review: "Respuestas con fuentes y muy buenas capacidades de exploración.", url: "https://www.perplexity.ai/" },
   { name: "Midjourney", category: "Imagen", review: "Para generar imágenes creativas con prompts. Resultados sorprendentes.", url: "https://www.midjourney.com/" },
   { name: "CapCut", category: "Video", review: "Herramientas asistidas por IA para edición rápida y subtítulos.", url: "https://www.capcut.com/" },
+  { name: "Claude", category: "Productividad", review: "Asistente de IA conversacional con excelente comprensión de contexto largo.", url: "https://claude.ai/" },
+  { name: "Gamma", category: "Presentaciones", review: "Crea presentaciones profesionales con IA en minutos.", url: "https://gamma.app/" },
+  { name: "Otter.ai", category: "Productividad", review: "Transcripción automática de reuniones y notas en tiempo real.", url: "https://otter.ai/" },
+  { name: "Runway", category: "Video", review: "Suite completa de herramientas de IA para edición de video creativa.", url: "https://runwayml.com/" },
+  { name: "Grammarly", category: "Escritura", review: "Mejora tu escritura con sugerencias de gramática, tono y claridad.", url: "https://www.grammarly.com/" },
+  { name: "Fireflies.ai", category: "Productividad", review: "Asistente de reuniones que graba, transcribe y resume automáticamente.", url: "https://fireflies.ai/" },
 ];
 
 const PROMPTS = [
@@ -44,6 +48,13 @@ const PROMPTS = [
   { text: "Genera ideas de contenido para redes sobre [tema] en un tono casual y cercano", category: "Contenido" },
   { text: "Analiza este texto y crea un resumen accionable en 5 viñetas", category: "Resumen" },
   { text: "Propón 3 mejoras concretas para este proceso: [descripción]", category: "Mejora" },
+  { text: "Eres un experto en [campo]. Dame una guía paso a paso para [objetivo]", category: "Aprendizaje" },
+  { text: "Reformula este email para que suene más profesional pero amigable: [email]", category: "Escritura" },
+  { text: "Genera 10 titulares llamativos para un artículo sobre: [tema]", category: "Contenido" },
+  { text: "Actúa como coach personal. Ayúdame a definir objetivos SMART para: [meta]", category: "Productividad" },
+  { text: "Crea una analogía simple para explicar [concepto técnico] a principiantes", category: "Aprendizaje" },
+  { text: "Lista pros y contras de [decisión] considerando estos factores: [factores]", category: "Análisis" },
+  { text: "Escribe un script de 60 segundos para video sobre [tema] dirigido a [audiencia]", category: "Contenido" },
 ];
 
 // Helpers
@@ -314,8 +325,10 @@ function initEvents() {
 }
 
 async function init() {
+  renderApps(APPS);
+  renderPrompts(PROMPTS);
   initEvents();
-  await Promise.all([fetchFeeds(), fetchTutorialFeeds(), fetchAppFeeds(), fetchPromptFeeds()]);
+  await Promise.all([fetchFeeds(), fetchTutorialFeeds()]);
 }
 
 // Boot
