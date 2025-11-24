@@ -43,6 +43,16 @@ const APPS = [
   { name: "Runway", category: "Video", review: "Suite completa de herramientas de IA para edición de video creativa.", url: "https://runwayml.com/" },
   { name: "Grammarly", category: "Escritura", review: "Mejora tu escritura con sugerencias de gramática, tono y claridad.", url: "https://www.grammarly.com/" },
   { name: "Fireflies.ai", category: "Productividad", review: "Asistente de reuniones que graba, transcribe y resume automáticamente.", url: "https://fireflies.ai/" },
+  { name: "ChatGPT", category: "Asistentes IA", review: "El asistente de IA más popular. Sube archivos, analiza datos y obtén insights útiles.", url: "https://chat.openai.com/" },
+  { name: "Grok", category: "Asistentes IA", review: "Asistente de IA con mínima censura, integrado en X. Excelente para generar imágenes.", url: "https://grok.x.ai/" },
+  { name: "Gemini", category: "Asistentes IA", review: "Asistente de Google con ventana de contexto de 1M tokens. Genera resúmenes en audio.", url: "https://gemini.google.com/" },
+  { name: "Synthesia", category: "Video", review: "Genera videos profesionales con avatares de IA sin cámara ni estudio.", url: "https://www.synthesia.io/" },
+  { name: "OpusClip", category: "Video", review: "Convierte videos largos en clips virales para redes sociales automáticamente.", url: "https://www.opus.pro/" },
+  { name: "Nano Banana", category: "Imagen", review: "Generador de imágenes con IA de última generación.", url: "https://nanobanana.com/" },
+  { name: "Canva Magic Studio", category: "Diseño", review: "Suite de herramientas de IA para diseño gráfico profesional sin esfuerzo.", url: "https://www.canva.com/" },
+  { name: "ElevenLabs", category: "Audio", review: "Generación de voz realista con IA en múltiples idiomas y tonos.", url: "https://elevenlabs.io/" },
+  { name: "Suno", category: "Audio", review: "Crea música original con IA desde texto. Ideal para compositores y creadores.", url: "https://suno.ai/" },
+  { name: "Cursor", category: "Programación", review: "Editor de código con IA integrada para programadores.", url: "https://www.cursor.com/" },
 ];
 
 const PROMPTS = [
