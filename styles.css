@@ -63,7 +63,15 @@ main .container {
   position: relative;
   z-index: 1;
 }
-.section-note { color: #1565c0; margin-top: -0.4rem; font-weight: 500; }
+.section-note { 
+  color: #ffffff; 
+  background: rgba(21, 101, 192, 0.85);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
 .filters { margin: 0.8rem 0; }
 select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text); backdrop-filter: blur(10px); font-weight: 500; }
 select option { background: #ffffff; color: var(--text); }
