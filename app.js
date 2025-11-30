@@ -2,7 +2,7 @@
 const FEEDS = [
   { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml", lang: "es" },
   { name: "Mentes Artificiales (USEO)", url: "https://useo.es/mentes-artificiales/feed/", lang: "es" },
-  { name: "Genbeta IA", url: "https://www.genbeta.com/tag/inteligencia-artificial/rss2.xml", lang: "es" },
+  { name: "Hipertextual IA", url: "https://hipertextual.com/tag/inteligencia-artificial/feed", lang: "es" },
   { name: "OpenAI", url: "https://openai.com/blog/rss.xml", lang: "en" },
   { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/", lang: "en" },
   { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/", lang: "en" },
@@ -21,8 +21,7 @@ const APP_FEEDS = [
 ];
 
 const PROMPT_FEEDS = [
-  { name: "OpenAI Examples", url: "https://platform.openai.com/docs/examples/rss", category: "Ejemplos" },
-  { name: "Prompt Engineering Guide", url: "https://www.promptingguide.ai/feed.xml", category: "Guías" },
+  // Los feeds de prompts no funcionan de forma confiable con RSS2JSON, usamos contenido estático curado
 ];
 
 const TUTORIALS = [
@@ -344,8 +343,9 @@ function initEvents() {
 
 async function init() {
   renderApps(APPS);
+  renderPrompts(PROMPTS);
   initEvents();
-  await Promise.all([fetchFeeds(), fetchTutorialFeeds(), fetchPromptFeeds()]);
+  await Promise.all([fetchFeeds(), fetchTutorialFeeds()]);
 }
 
 // Boot
