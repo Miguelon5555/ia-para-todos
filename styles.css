@@ -32,6 +32,11 @@ body {
 .tools button:hover { background: rgba(255, 255, 255, 0.9); border-color: var(--accent); }
 
 main section { margin: 1.5rem 0; }
+main section h2 {
+  color: #0d47a1;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
 main {
   background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&q=80');
   background-size: cover;
@@ -54,7 +59,7 @@ main .container {
   position: relative;
   z-index: 1;
 }
-.section-note { color: var(--muted); margin-top: -0.4rem; }
+.section-note { color: #1565c0; margin-top: -0.4rem; font-weight: 500; }
 .filters { margin: 0.8rem 0; }
 select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--border); background: var(--input-bg); color: var(--text); backdrop-filter: blur(10px); font-weight: 500; }
 select option { background: #ffffff; color: var(--text); }
