@@ -21,7 +21,8 @@ const APP_FEEDS = [
 ];
 
 const PROMPT_FEEDS = [
-  // Los feeds de prompts no funcionan bien con RSS2JSON, usamos contenido estático enriquecido
+  { name: "OpenAI Examples", url: "https://platform.openai.com/docs/examples/rss", category: "Ejemplos" },
+  { name: "Prompt Engineering Guide", url: "https://www.promptingguide.ai/feed.xml", category: "Guías" },
 ];
 
 const TUTORIALS = [
@@ -343,9 +344,8 @@ function initEvents() {
 
 async function init() {
   renderApps(APPS);
-  renderPrompts(PROMPTS);
   initEvents();
-  await Promise.all([fetchFeeds(), fetchTutorialFeeds()]);
+  await Promise.all([fetchFeeds(), fetchTutorialFeeds(), fetchPromptFeeds()]);
 }
 
 // Boot
