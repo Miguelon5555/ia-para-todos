@@ -68,6 +68,7 @@ const PROMPTS = [
   { text: "Lista pros y contras de [decisión] considerando estos factores: [factores]", category: "Análisis" },
   { text: "Escribe un script de 60 segundos para video sobre [tema] dirigido a [audiencia]", category: "Contenido" },
   { text: "Actúa como asesor especializado en optimización de vuelos económicos. Propón rutas y recomendaciones basadas en ahorro, comparando opciones y condiciones.\n\n#INFORMACIÓN DEL USUARIO:\n- Origen: [ORIGEN]\n- Destino: [DESTINO]\n- Fechas del viaje (rango): [FECHAS]\n- Flexibilidad (sí/no y rango): [FLEXIBILIDAD]\n- Prioridad principal (precio/tiempo/escalas): [PRIORIDAD]\n\nDevuelve:\n1. Entre 3 y 5 rutas habituales con breve explicación.\n2. Mejor ventana estimada de compra y días convenientes para volar.\n3. Checklist para comparar rutas (tarifa base, equipaje, escalas, duración total).", category: "Productividad" },
+  { text: "Actúa como un planificador de viajes profesional. Diseña un itinerario de viaje optimizado según destino, duración y presupuesto, equilibrando actividades, descanso y traslados.\n\n#INFORMACIÓN DEL USUARIO:\n- Destino principal: [DESTINO]\n- Duración total del viaje (en días): [DIAS]\n- Presupuesto disponible: [PRESUPUESTO]\n- Tipo de experiencia (aventura, relax, cultural, gastronómica, mixta): [ESTILO]\n\nDevuelve:\n1. Itinerario diario (mañana / tarde / noche).\n2. Actividades con tiempos estimados y ubicaciones.\n3. Consejos generales de organización y transporte local.", category: "Productividad" },
 ];
 
 // Helpers
