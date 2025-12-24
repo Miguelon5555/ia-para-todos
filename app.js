@@ -67,6 +67,7 @@ const PROMPTS = [
   { text: "Crea una analogía simple para explicar [concepto técnico] a principiantes", category: "Aprendizaje" },
   { text: "Lista pros y contras de [decisión] considerando estos factores: [factores]", category: "Análisis" },
   { text: "Escribe un script de 60 segundos para video sobre [tema] dirigido a [audiencia]", category: "Contenido" },
+  { text: "Actúa como asesor especializado en optimización de vuelos económicos. Propón rutas y recomendaciones basadas en ahorro, comparando opciones y condiciones.\n\n#INFORMACIÓN DEL USUARIO:\n- Origen: [ORIGEN]\n- Destino: [DESTINO]\n- Fechas del viaje (rango): [FECHAS]\n- Flexibilidad (sí/no y rango): [FLEXIBILIDAD]\n- Prioridad principal (precio/tiempo/escalas): [PRIORIDAD]\n\nDevuelve:\n1. Entre 3 y 5 rutas habituales con breve explicación.\n2. Mejor ventana estimada de compra y días convenientes para volar.\n3. Checklist para comparar rutas (tarifa base, equipaje, escalas, duración total).", category: "Productividad" },
 ];
 
 // Helpers
