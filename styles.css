@@ -84,43 +84,51 @@ main section h2 {
 
 /* Ensure cards have proper background without image interference */
 #noticias .card, #tutoriales .card, #apps .card, #prompts .card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(33, 150, 243, 0.3);
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
-  border-radius: 12px;
-  padding: 0.9rem;
-  position: relative;
-  z-index: 3;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.9rem !important;
+  position: relative !important;
+  z-index: 3 !important;
 }
 
 /* Ensure filters have proper background */
 #noticias .filters, #tutoriales .filters, #apps .filters, #prompts .filters {
-  position: relative;
-  z-index: 3;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(33, 150, 243, 0.3);
-  backdrop-filter: blur(10px);
+  position: relative !important;
+  z-index: 3 !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  padding: 0.5rem !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 /* Ensure section notes have proper background */
 #noticias .section-note, #tutoriales .section-note, #apps .section-note, #prompts .section-note {
-  position: relative;
-  z-index: 3;
-  background: rgba(21, 101, 192, 0.9);
-  color: #ffffff;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  margin-top: 0.5rem;
-  font-weight: 500;
-  display: inline-block;
+  position: relative !important;
+  z-index: 3 !important;
+  background: rgba(21, 101, 192, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 6px !important;
+  margin-top: 0.5rem !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
 }
 
 /* Remove any potential dark overlays */
 #tutoriales::before, #prompts::before {
   display: none !important;
+}
+
+/* Override general card styles for section cards */
+#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 main {
