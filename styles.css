@@ -81,6 +81,42 @@ main section h2 {
   color: #333;
 }
 
+/* Ensure cards have proper background without image interference */
+#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+  border-radius: 12px;
+  padding: 0.9rem;
+  position: relative;
+  z-index: 3;
+}
+
+/* Ensure filters have proper background */
+#noticias .filters, #tutoriales .filters, #apps .filters, #prompts .filters {
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(33, 150, 243, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+/* Ensure section notes have proper background */
+#noticias .section-note, #tutoriales .section-note, #apps .section-note, #prompts .section-note {
+  position: relative;
+  z-index: 3;
+  background: rgba(21, 101, 192, 0.9) !important;
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
 main {
   background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&q=80');
   background-size: cover;
