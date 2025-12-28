@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IA para todos</title>
+  <title>IA para todos - Blog de Inteligencia Artificial en Español</title>
   <meta name="description" content="Blog casual sobre inteligencia artificial: noticias diarias, tutoriales, apps recomendadas y prompts útiles." />
   
   <!-- SEO Meta Tags -->
@@ -12,6 +12,26 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://iaforall.netlify.app/" />
   
+  <!-- Structured Data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "IA para todos",
+    "description": "Blog sobre inteligencia artificial con noticias diarias, tutoriales, apps recomendadas y prompts útiles.",
+    "url": "https://iaforall.netlify.app/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IA para todos"
+    },
+    "inLanguage": "es"
+  }
+  </script>
+  
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://api.rss2json.com" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://iaforall.netlify.app/" />
@@ -19,6 +39,7 @@
   <meta property="og:description" content="Noticias diarias, tutoriales, apps recomendadas y prompts útiles sobre IA. Todo en un tono casual y fácil de entender." />
   <meta property="og:image" content="https://iaforall.netlify.app/og-image.jpg" />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="IA para todos" />
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -50,9 +71,9 @@
     </div>
   </header>
 
-  <main class="container">
-    <section id="noticias" aria-labelledby="news-title">
-      <h2 id="news-title">Noticias diarias</h2>
+  <main class="container" itemscope itemtype="https://schema.org/Blog">
+    <section id="noticias" aria-labelledby="news-title" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+      <h2 id="news-title" itemprop="name">Noticias diarias</h2>
       <div class="filters">
         <label>
           Fuente:
@@ -61,11 +82,11 @@
           </select>
         </label>
       </div>
-      <ul id="newsList" class="card-list" aria-live="polite"></ul>
+      <ul id="newsList" class="card-list" aria-live="polite" itemprop="articleBody"></ul>
     </section>
 
-    <section id="tutoriales" aria-labelledby="tutorials-title">
-      <h2 id="tutorials-title">Tutoriales</h2>
+    <section id="tutoriales" aria-labelledby="tutorials-title" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+      <h2 id="tutorials-title" itemprop="name">Tutoriales</h2>
       <div class="filters">
         <label>
           Categoría:
@@ -74,12 +95,12 @@
           </select>
         </label>
       </div>
-      <ul id="tutorialsList" class="card-list"></ul>
+      <ul id="tutorialsList" class="card-list" itemprop="articleBody"></ul>
     </section>
 
-    <section id="apps" aria-labelledby="apps-title">
-      <h2 id="apps-title">Apps recomendadas</h2>
-      <p class="section-note">Reseñas breves con enlace a cada app.</p>
+    <section id="apps" aria-labelledby="apps-title" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+      <h2 id="apps-title" itemprop="name">Apps recomendadas</h2>
+      <p class="section-note" itemprop="description">Reseñas breves con enlace a cada app.</p>
       <div class="filters">
         <label>
           Categoría:
@@ -88,11 +109,11 @@
           </select>
         </label>
       </div>
-      <ul id="appsList" class="card-list"></ul>
+      <ul id="appsList" class="card-list" itemprop="articleBody"></ul>
     </section>
 
-    <section id="prompts" aria-labelledby="prompts-title">
-      <h2 id="prompts-title">Prompts útiles</h2>
+    <section id="prompts" aria-labelledby="prompts-title" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+      <h2 id="prompts-title" itemprop="name">Prompts útiles</h2>
       <div class="filters">
         <label>
           Categoría:
@@ -101,7 +122,7 @@
           </select>
         </label>
       </div>
-      <ul id="promptsList" class="card-list"></ul>
+      <ul id="promptsList" class="card-list" itemprop="articleBody"></ul>
     </section>
   </main>
 
