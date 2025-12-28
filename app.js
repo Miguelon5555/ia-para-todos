@@ -2,11 +2,11 @@
 const FEEDS = [
   { name: "Xataka IA", url: "https://www.xataka.com/tag/inteligencia-artificial/rss2.xml", lang: "es" },
   { name: "Mentes Artificiales (USEO)", url: "https://useo.es/mentes-artificiales/feed/", lang: "es" },
-  { name: "Hipertextual IA", url: "https://hipertextual.com/tag/inteligencia-artificial/feed", lang: "es" },
+  { name: "AI News", url: "https://ainews.substack.com/feed", lang: "en" },
   { name: "OpenAI", url: "https://openai.com/blog/rss.xml", lang: "en" },
   { name: "TechCrunch AI", url: "https://techcrunch.com/category/artificial-intelligence/feed/", lang: "en" },
+  { name: "Analytics Vidhya", url: "https://www.analyticsvidhya.com/feed/", lang: "en" },
   { name: "MIT Tech Review", url: "https://www.technologyreview.com/feed/", lang: "en" },
-  { name: "VentureBeat AI", url: "https://venturebeat.com/category/ai/feed/", lang: "en" },
 ];
 
 const TUTORIAL_FEEDS = [

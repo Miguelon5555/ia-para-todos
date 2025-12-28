@@ -41,6 +41,96 @@ main section h2 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   display: inline-block;
 }
+
+/* Background images for sections */
+#noticias { background-image: url('https://images.unsplash.com/photo-1677442135722-13271e88b04d?w=800&q=80'); background-size: cover; background-position: center; padding: 1.5rem; border-radius: 12px; }
+#tutoriales { background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80'); background-size: cover; background-position: center; padding: 1.5rem; border-radius: 12px; }
+#apps { background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f4a?w=800&q=80'); background-size: cover; background-position: center; padding: 1.5rem; border-radius: 12px; }
+#prompts { background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80'); background-size: cover; background-position: center; padding: 1.5rem; border-radius: 12px; }
+
+/* Adjust section content to be readable over images */
+#noticias .section-note, #noticias .filters, #noticias .card-list,
+#tutoriales .section-note, #tutoriales .filters, #tutoriales .card-list,
+#apps .section-note, #apps .filters, #apps .card-list,
+#prompts .section-note, #prompts .filters, #prompts .card-list {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* Ensure section titles are visible with better contrast */
+#noticias h2, #tutoriales h2, #apps h2, #prompts h2 {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  background: rgba(13, 71, 161, 0.95);
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Add subtle text shadow to content for better readability */
+#noticias p, #noticias h3, #noticias .meta,
+#tutoriales p, #tutoriales h3, #tutoriales .meta,
+#apps p, #apps h3, #apps .meta,
+#prompts p, #prompts h3, #prompts .meta {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Ensure cards have proper background without image interference */
+#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.9rem !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Ensure filters have proper background */
+#noticias .filters, #tutoriales .filters, #apps .filters, #prompts .filters {
+  position: relative !important;
+  z-index: 3 !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  padding: 0.5rem !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Ensure section notes have proper background */
+#noticias .section-note, #tutoriales .section-note, #apps .section-note, #prompts .section-note {
+  position: relative !important;
+  z-index: 3 !important;
+  background: rgba(21, 101, 192, 0.9) !important;
+  color: #ffffff !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 6px !important;
+  margin-top: 0.5rem !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+}
+
+/* Remove any potential dark overlays */
+#tutoriales::before, #prompts::before {
+  display: none !important;
+}
+
+/* Override general card styles for section cards */
+#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
 main {
   background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&q=80');
   background-size: cover;
