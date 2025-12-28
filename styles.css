@@ -55,6 +55,7 @@ main section h2 {
 #prompts .section-note, #prompts .filters, #prompts .card-list {
   position: relative;
   z-index: 1;
+  background: transparent !important;
 }
 
 /* Ensure section titles are visible with better contrast */
@@ -115,6 +116,11 @@ main section h2 {
   margin-top: 0.5rem;
   font-weight: 500;
   display: inline-block;
+}
+
+/* Remove any potential dark overlays */
+#tutoriales::before, #prompts::before {
+  display: none !important;
 }
 
 main {
