@@ -167,14 +167,47 @@ select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--bor
 select option { background: #ffffff; color: var(--text); }
 
 .card-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-.card {
-  background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); backdrop-filter: blur(10px);
+
+/* Section-specific card styles only */
+#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(33, 150, 243, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.9rem !important;
+  position: relative !important;
+  z-index: 3 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.4rem !important;
 }
-.card h3 { margin: 0; font-size: 1.05rem; color: var(--text); }
-.card p { margin: 0.1rem 0; color: var(--muted); }
-.card .meta { font-size: 0.85rem; color: var(--muted); }
-.card a { color: var(--link); text-decoration: none; }
-.card a:hover { text-decoration: underline; }
+
+#noticias .card h3, #tutoriales .card h3, #apps .card h3, #prompts .card h3 {
+  margin: 0 !important;
+  font-size: 1.05rem !important;
+  color: var(--text) !important;
+}
+
+#noticias .card p, #tutoriales .card p, #apps .card p, #prompts .card p {
+  margin: 0.1rem 0 !important;
+  color: var(--muted) !important;
+}
+
+#noticias .card .meta, #tutoriales .card .meta, #apps .card .meta, #prompts .card .meta {
+  font-size: 0.85rem !important;
+  color: var(--muted) !important;
+}
+
+#noticias .card a, #tutoriales .card a, #apps .card a, #prompts .card a {
+  color: var(--link) !important;
+  text-decoration: none !important;
+}
+
+#noticias .card a:hover, #tutoriales .card a:hover, #apps .card a:hover, #prompts .card a:hover {
+  text-decoration: underline !important;
+}
+
 .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: #e3f2fd; border: 1px solid var(--border); color: var(--text); font-size: 0.75rem; font-weight: 600; }
 
 .site-footer { border-top: 1px solid var(--border); background: var(--header-bg); }
