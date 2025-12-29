@@ -55,7 +55,7 @@ main section h2 {
 #prompts .section-note, #prompts .filters, #prompts .card-list {
   position: relative;
   z-index: 1;
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Ensure section titles are visible with better contrast */
@@ -80,6 +80,74 @@ main section h2 {
 #prompts p, #prompts h3, #prompts .meta {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   color: #333;
+}
+
+/* Section-specific card styles */
+#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+  border-radius: 12px;
+  padding: 0.9rem;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#noticias .card h3, #tutoriales .card h3, #apps .card h3, #prompts .card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+#noticias .card p, #tutoriales .card p, #apps .card p, #prompts .card p {
+  margin: 0.1rem 0;
+  color: var(--muted);
+}
+
+#noticias .card .meta, #tutoriales .card .meta, #apps .card .meta, #prompts .card .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+#noticias .card a, #tutoriales .card a, #apps .card a, #prompts .card a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+#noticias .card a:hover, #tutoriales .card a:hover, #apps .card a:hover, #prompts .card a:hover {
+  text-decoration: underline;
+}
+
+/* Remove any potential overlays */
+#tutoriales::before, #prompts::before {
+  display: none;
+}
+
+/* Ensure filters and notes have proper styling */
+#noticias .filters, #tutoriales .filters, #apps .filters, #prompts .filters {
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+#noticias .section-note, #tutoriales .section-note, #apps .section-note, #prompts .section-note {
+  position: relative;
+  z-index: 3;
+  background: rgba(21, 101, 192, 0.9);
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
 }
 
 /* Ensure cards have proper background without image interference */
@@ -118,19 +186,6 @@ main section h2 {
   display: inline-block !important;
 }
 
-/* Remove any potential dark overlays */
-#tutoriales::before, #prompts::before {
-  display: none !important;
-}
-
-/* Override general card styles for section cards */
-#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgba(33, 150, 243, 0.3) !important;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
-  backdrop-filter: blur(10px) !important;
-}
-
 main {
   background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&q=80');
   background-size: cover;
@@ -167,46 +222,6 @@ select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--bor
 select option { background: #ffffff; color: var(--text); }
 
 .card-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-
-/* Section-specific card styles only */
-#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(33, 150, 243, 0.3) !important;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
-  border-radius: 12px !important;
-  padding: 0.9rem !important;
-  position: relative !important;
-  z-index: 3 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.4rem !important;
-}
-
-#noticias .card h3, #tutoriales .card h3, #apps .card h3, #prompts .card h3 {
-  margin: 0 !important;
-  font-size: 1.05rem !important;
-  color: var(--text) !important;
-}
-
-#noticias .card p, #tutoriales .card p, #apps .card p, #prompts .card p {
-  margin: 0.1rem 0 !important;
-  color: var(--muted) !important;
-}
-
-#noticias .card .meta, #tutoriales .card .meta, #apps .card .meta, #prompts .card .meta {
-  font-size: 0.85rem !important;
-  color: var(--muted) !important;
-}
-
-#noticias .card a, #tutoriales .card a, #apps .card a, #prompts .card a {
-  color: var(--link) !important;
-  text-decoration: none !important;
-}
-
-#noticias .card a:hover, #tutoriales .card a:hover, #apps .card a:hover, #prompts .card a:hover {
-  text-decoration: underline !important;
-}
 
 .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: #e3f2fd; border: 1px solid var(--border); color: var(--text); font-size: 0.75rem; font-weight: 600; }
 
