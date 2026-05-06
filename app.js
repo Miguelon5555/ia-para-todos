@@ -8,14 +8,24 @@ const RSS_FEEDS = [
     source: 'xataka'
   },
   {
-    name: 'Computerhoy IA',
+    name: 'Computerhoy',
     url: 'https://computerhoy.20minutos.es/rss/inteligencia-artificial/',
     source: 'computerhoy'
   },
   {
-    name: 'Genbeta IA',
+    name: 'Genbeta',
     url: 'https://feeds.weblogssl.com/genbeta',
     source: 'genbeta'
+  },
+  {
+    name: 'El Español Tecnología',
+    url: 'https://www.elespanol.com/rss/tecnologia/',
+    source: 'elespanol'
+  },
+  {
+    name: 'Hipertextual IA',
+    url: 'https://hipertextual.com/feed',
+    source: 'hipertextual'
   }
 ];
 
@@ -156,6 +166,7 @@ async function fetchNewsFeeds() {
   
   const allNews = [];
   const sources = new Set();
+  let successCount = 0;
   
   for (const feed of RSS_FEEDS) {
     try {
@@ -163,22 +174,32 @@ async function fetchNewsFeeds() {
       const response = await fetch(proxyUrl);
       const data = await response.json();
       
-      if (data.items && data.items.length > 0) {
-        data.items.slice(0, 10).forEach(item => {
+      if (data.status === 'ok' && data.items && data.items.length > 0) {
+        data.items.slice(0, 8).forEach(item => {
           allNews.push({
             title: item.title,
             link: item.link,
-            description: item.description?.replace(/<[^>]*>/g, '').substring(0, 150) + '...',
+            description: item.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
             date: item.pubDate,
             source: feed.source,
             sourceName: feed.name
           });
           sources.add(feed.source);
         });
+        successCount++;
+        console.log(`✅ ${feed.name}: ${data.items.length} noticias cargadas`);
+      } else {
+        console.warn(`⚠️ ${feed.name}: Sin noticias o feed no disponible`);
       }
     } catch (error) {
-      console.error(`Error fetching ${feed.name}:`, error);
+      console.error(`❌ Error fetching ${feed.name}:`, error.message);
     }
+  }
+  
+  if (allNews.length === 0) {
+    newsList.innerHTML = '<li class="empty">No se pudieron cargar las noticias. Intenta más tarde.</li>';
+    console.error('❌ Ningún feed RSS cargó correctamente');
+    return;
   }
   
   // Sort by date (newest first)
@@ -186,10 +207,12 @@ async function fetchNewsFeeds() {
   
   newsItems = allNews;
   
+  console.log(`✅ Total: ${allNews.length} noticias de ${successCount} fuentes`);
+  
   // Populate source filter
   if (sourceFilter) {
     sourceFilter.innerHTML = '<option value="">Todas</option>';
-    sources.forEach(source => {
+    Array.from(sources).sort().forEach(source => {
       const feed = RSS_FEEDS.find(f => f.source === source);
       const option = document.createElement('option');
       option.value = source;
