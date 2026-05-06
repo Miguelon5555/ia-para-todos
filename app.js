@@ -37,19 +37,29 @@ const TUTORIAL_FEEDS = [
     source: 'juansensio'
   },
   {
-    name: 'Medium IA Español',
-    url: 'https://medium.com/feed/tag/inteligencia-artificial',
-    source: 'medium'
+    name: 'YouTube - Dot CSV',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCMUnIn5OkrKtO16h9z18y8g',
+    source: 'youtube-dotcsv'
+  },
+  {
+    name: 'YouTube - MiduDev',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC82888xGDlPnJ1mWJxBSsDw',
+    source: 'youtube-midudev'
+  },
+  {
+    name: 'YouTube - Carlos Obispo IA',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCVGBgtEJ8W8VEGnc4W1XEZQ',
+    source: 'youtube-carlosobispo'
+  },
+  {
+    name: 'YouTube - Edutin Academy',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCyB1GBo0mMHcYw5Y1OkuqKA',
+    source: 'youtube-edutin'
   },
   {
     name: 'Cyberhades IA',
     url: 'https://www.cyberhades.com/category/inteligencia-artificial/feed/',
     source: 'cyberhades'
-  },
-  {
-    name: 'Innovation Legal IA',
-    url: 'https://www.abogacia.es/publicaciones/blogs/blog-de-innovacion-legal/feed/',
-    source: 'abogacia'
   }
 ];
 
@@ -267,14 +277,33 @@ async function fetchTutorialFeeds() {
       const data = await response.json();
       
       if (data.status === 'ok' && data.items && data.items.length > 0) {
-        data.items.slice(0, 6).forEach(item => {
+        data.items.slice(0, 4).forEach(item => {
           // Extract category from tags or use default
-          const category = item.categories?.[0] || 'Tutorial';
+          let category = item.categories?.[0] || 'Tutorial';
+          
+          // Detect YouTube videos
+          const isYouTube = feed.source.startsWith('youtube-');
+          if (isYouTube) {
+            category = 'Video';
+          }
+          
+          // Skip non-Spanish content (basic filter)
+          const title = item.title || '';
+          const description = item.description || '';
+          const combinedText = (title + ' ' + description).toLowerCase();
+          
+          // Simple language detection - skip if clearly Portuguese
+          if (combinedText.includes('inteligência artificial') || 
+              combinedText.includes('aprendizado de máquina') ||
+              combinedText.includes('como fazer')) {
+            console.log(`⏭️ Saltado (portugués): ${title}`);
+            return;
+          }
           
           allTutorials.push({
-            title: item.title,
+            title: title,
             link: item.link,
-            description: item.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+            description: description.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
             date: item.pubDate,
             source: feed.source,
             sourceName: feed.name,
