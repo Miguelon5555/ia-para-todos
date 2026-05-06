@@ -32,14 +32,24 @@ const TUTORIAL_FEEDS = [
     source: 'freecodecamp'
   },
   {
-    name: 'Kondo con IA',
-    url: 'https://kondoconia.com/feed/',
-    source: 'kondo'
+    name: 'Juan Sensio IA',
+    url: 'https://www.juansensio.com/blog/index.xml',
+    source: 'juansensio'
   },
   {
-    name: 'Platzi Blog',
-    url: 'https://platzi.com/blog/rss/',
-    source: 'platzi'
+    name: 'Medium IA Español',
+    url: 'https://medium.com/feed/tag/inteligencia-artificial',
+    source: 'medium'
+  },
+  {
+    name: 'Cyberhades IA',
+    url: 'https://www.cyberhades.com/category/inteligencia-artificial/feed/',
+    source: 'cyberhades'
+  },
+  {
+    name: 'Innovation Legal IA',
+    url: 'https://www.abogacia.es/publicaciones/blogs/blog-de-innovacion-legal/feed/',
+    source: 'abogacia'
   }
 ];
 
