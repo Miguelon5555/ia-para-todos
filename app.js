@@ -29,6 +29,25 @@ const RSS_FEEDS = [
   }
 ];
 
+// Tutorial RSS Feeds (Spanish AI tutorials)
+const TUTORIAL_FEEDS = [
+  {
+    name: 'freeCodeCamp Español',
+    url: 'https://www.freecodecamp.org/espanol/news/tag/inteligencia-artificial/rss/',
+    source: 'freecodecamp'
+  },
+  {
+    name: 'AprenderGratis.es',
+    url: 'https://aprendergratis.es/inteligencia-artificial/feed/',
+    source: 'aprendergratis'
+  },
+  {
+    name: 'CursosFemxa IA',
+    url: 'https://www.cursosfemxa.es/blog/category/inteligencia-artificial/feed/',
+    source: 'femxa'
+  }
+];
+
 // Static content for tutorials
 const TUTORIALS = [
   {
@@ -149,6 +168,7 @@ const PROMPTS = [
 
 // State
 let newsItems = [];
+let tutorialItems = [];
 let currentNewsSource = '';
 let currentTutorialCategory = '';
 let currentAppCategory = '';
@@ -224,6 +244,75 @@ async function fetchNewsFeeds() {
   renderNews();
 }
 
+// Fetch tutorial feeds
+async function fetchTutorialFeeds() {
+  const tutorialsList = document.getElementById('tutorialsList');
+  const categorySelect = document.getElementById('tutorialCategorySelect');
+  
+  if (!tutorialsList) return;
+  
+  const allTutorials = [];
+  const categories = new Set();
+  let successCount = 0;
+  
+  for (const feed of TUTORIAL_FEEDS) {
+    try {
+      const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+      const response = await fetch(proxyUrl);
+      const data = await response.json();
+      
+      if (data.status === 'ok' && data.items && data.items.length > 0) {
+        data.items.slice(0, 6).forEach(item => {
+          // Extract category from tags or use default
+          const category = item.categories?.[0] || 'Tutorial';
+          
+          allTutorials.push({
+            title: item.title,
+            link: item.link,
+            description: item.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...',
+            date: item.pubDate,
+            source: feed.source,
+            sourceName: feed.name,
+            category: category
+          });
+          categories.add(category);
+        });
+        successCount++;
+        console.log(`✅ Tutorial ${feed.name}: ${data.items.length} tutoriales cargados`);
+      } else {
+        console.warn(`⚠️ Tutorial ${feed.name}: Sin tutoriales o feed no disponible`);
+      }
+    } catch (error) {
+      console.error(`❌ Error fetching tutorial ${feed.name}:`, error.message);
+    }
+  }
+  
+  // Add static tutorials as fallback
+  if (allTutorials.length === 0) {
+    console.log('📝 Usando tutoriales estáticos como fallback');
+    tutorialItems = TUTORIALS;
+  } else {
+    // Sort by date (newest first)
+    allTutorials.sort((a, b) => new Date(b.date) - new Date(a.date));
+    tutorialItems = allTutorials;
+    
+    console.log(`✅ Total: ${allTutorials.length} tutoriales de ${successCount} fuentes`);
+    
+    // Populate category filter
+    if (categorySelect) {
+      categorySelect.innerHTML = '<option value="">Todas</option>';
+      Array.from(categories).sort().forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat;
+        categorySelect.appendChild(option);
+      });
+    }
+  }
+  
+  renderTutorials();
+}
+
 // Render news with filters
 function renderNews() {
   const newsList = document.getElementById('newsList');
@@ -267,7 +356,7 @@ function renderTutorials() {
   const tutorialsList = document.getElementById('tutorialsList');
   if (!tutorialsList) return;
   
-  let filtered = TUTORIALS;
+  let filtered = tutorialItems;
   
   // Apply category filter
   if (currentTutorialCategory) {
@@ -290,10 +379,11 @@ function renderTutorials() {
   
   tutorialsList.innerHTML = filtered.map(item => `
     <li class="card">
-      <h3><a href="${item.link}">${item.title}</a></h3>
+      <h3><a href="${item.link}" target="_blank" rel="noopener">${item.title}</a></h3>
       <p>${item.description}</p>
       <div class="meta">
         <span class="badge">${item.category}</span>
+        ${item.sourceName ? `<span class="badge">${item.sourceName}</span>` : ''}
         <time>${formatDate(item.date)}</time>
       </div>
     </li>
@@ -400,7 +490,7 @@ function initFilters() {
   // Tutorial category filter
   const tutorialCategorySelect = document.getElementById('tutorialCategorySelect');
   if (tutorialCategorySelect) {
-    const categories = [...new Set(TUTORIALS.map(t => t.category))];
+    const categories = [...new Set(tutorialItems.map(t => t.category))];
     categories.forEach(cat => {
       const option = document.createElement('option');
       option.value = cat;
@@ -486,8 +576,10 @@ async function init() {
   // Fetch news feeds
   await fetchNewsFeeds();
   
+  // Fetch tutorial feeds
+  await fetchTutorialFeeds();
+  
   // Render static content
-  renderTutorials();
   renderApps();
   renderPrompts();
   
