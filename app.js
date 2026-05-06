@@ -3,29 +3,24 @@
 // RSS Feeds configuration (Spanish AI news sources)
 const RSS_FEEDS = [
   {
-    name: 'Xataka IA',
-    url: 'https://feeds.weblogssl.com/xataka-ia',
-    source: 'xataka'
-  },
-  {
-    name: 'Computerhoy',
-    url: 'https://computerhoy.20minutos.es/rss/inteligencia-artificial/',
-    source: 'computerhoy'
-  },
-  {
     name: 'Genbeta',
     url: 'https://feeds.weblogssl.com/genbeta',
     source: 'genbeta'
   },
   {
-    name: 'El Español Tecnología',
-    url: 'https://www.elespanol.com/rss/tecnologia/',
-    source: 'elespanol'
-  },
-  {
-    name: 'Hipertextual IA',
+    name: 'Hipertextual',
     url: 'https://hipertextual.com/feed',
     source: 'hipertextual'
+  },
+  {
+    name: 'Wired en Español',
+    url: 'https://es.wired.com/feed',
+    source: 'wired'
+  },
+  {
+    name: 'Google News IA',
+    url: 'https://news.google.com/rss/search?q=inteligencia+artificial+IA&hl=es&gl=ES&ceid=ES:es',
+    source: 'googlenews'
   }
 ];
 
@@ -37,14 +32,14 @@ const TUTORIAL_FEEDS = [
     source: 'freecodecamp'
   },
   {
-    name: 'AprenderGratis.es',
-    url: 'https://aprendergratis.es/inteligencia-artificial/feed/',
-    source: 'aprendergratis'
+    name: 'Kondo con IA',
+    url: 'https://kondoconia.com/feed/',
+    source: 'kondo'
   },
   {
-    name: 'CursosFemxa IA',
-    url: 'https://www.cursosfemxa.es/blog/category/inteligencia-artificial/feed/',
-    source: 'femxa'
+    name: 'Platzi Blog',
+    url: 'https://platzi.com/blog/rss/',
+    source: 'platzi'
   }
 ];
 
