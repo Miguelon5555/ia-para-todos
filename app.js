@@ -63,42 +63,70 @@ const TUTORIAL_FEEDS = [
   }
 ];
 
-// Static content for tutorials
+// Static content for tutorials (guaranteed fallback)
 const TUTORIALS = [
   {
     title: '¿Qué es ChatGPT y cómo usarlo?',
-    description: 'Guía completa para principiantes sobre cómo empezar con ChatGPT.',
+    description: 'Guía completa para principiantes sobre cómo empezar con ChatGPT y sacarle el máximo provecho.',
     category: 'ChatGPT',
     link: 'https://chat.openai.com',
     date: '2024-01-15'
   },
   {
     title: 'Cómo crear imágenes con IA',
-    description: 'Tutorial paso a paso para generar imágenes usando inteligencia artificial.',
+    description: 'Tutorial paso a paso para generar imágenes increíbles usando inteligencia artificial.',
     category: 'Imágenes',
-    link: '#',
+    link: 'https://www.midjourney.com',
     date: '2024-01-20'
   },
   {
     title: 'Mejores prompts para ChatGPT',
-    description: 'Aprende a escribir prompts efectivos para obtener mejores resultados.',
+    description: 'Aprende a escribir prompts efectivos para obtener mejores resultados de la IA.',
     category: 'Prompts',
     link: '#prompts',
     date: '2024-02-01'
   },
   {
     title: 'Automatiza tareas con IA',
-    description: 'Descubre cómo usar IA para automatizar tareas cotidianas.',
+    description: 'Descubre cómo usar IA para automatizar tareas cotidianas y ser más productivo.',
     category: 'Productividad',
     link: '#',
     date: '2024-02-10'
   },
   {
     title: 'IA para estudiantes',
-    description: 'Herramientas de IA que te ayudarán a estudiar mejor.',
+    description: 'Herramientas de IA que te ayudarán a estudiar mejor y aprender más rápido.',
     category: 'Educación',
     link: '#',
     date: '2024-02-15'
+  },
+  {
+    title: 'Machine Learning explicado fácil',
+    description: 'Entiende qué es el Machine Learning con ejemplos prácticos y sencillos.',
+    category: 'Machine Learning',
+    link: '#',
+    date: '2024-02-20'
+  },
+  {
+    title: 'Cómo usar Claude AI',
+    description: 'Tutorial completo sobre la IA de Anthropic y cómo compararla con ChatGPT.',
+    category: 'ChatGPT',
+    link: 'https://claude.ai',
+    date: '2024-03-01'
+  },
+  {
+    title: 'Crear presentaciones con IA',
+    description: 'Herramientas de IA para crear presentaciones profesionales en minutos.',
+    category: 'Productividad',
+    link: '#',
+    date: '2024-03-05'
+  },
+  {
+    title: 'IA para programadores',
+    description: 'Cómo usar GitHub Copilot y otras herramientas de IA para programar más rápido.',
+    category: 'Programación',
+    link: '#',
+    date: '2024-03-10'
   }
 ];
 
@@ -321,16 +349,23 @@ async function fetchTutorialFeeds() {
     }
   }
   
-  // Add static tutorials as fallback
+  // Combine with static tutorials to ensure at least 9
   if (allTutorials.length === 0) {
     console.log('📝 Usando tutoriales estáticos como fallback');
     tutorialItems = TUTORIALS;
   } else {
+    // Add static tutorials to reach 9 minimum
+    const needed = Math.max(0, 9 - allTutorials.length);
+    if (needed > 0) {
+      console.log(`📝 Agregando ${needed} tutoriales estáticos para completar`);
+      allTutorials.push(...TUTORIALS.slice(0, needed));
+    }
+    
     // Sort by date (newest first)
     allTutorials.sort((a, b) => new Date(b.date) - new Date(a.date));
     tutorialItems = allTutorials;
     
-    console.log(`✅ Total: ${allTutorials.length} tutoriales de ${successCount} fuentes`);
+    console.log(`✅ Total: ${allTutorials.length} tutoriales de ${successCount} fuentes + estáticos`);
     
     // Populate category filter
     if (categorySelect) {
@@ -340,6 +375,16 @@ async function fetchTutorialFeeds() {
         option.value = cat;
         option.textContent = cat;
         categorySelect.appendChild(option);
+      });
+      // Add static categories
+      TUTORIALS.forEach(t => {
+        if (!categories.has(t.category)) {
+          const option = document.createElement('option');
+          option.value = t.category;
+          option.textContent = t.category;
+          categorySelect.appendChild(option);
+          categories.add(t.category);
+        }
       });
     }
   }
