@@ -55,7 +55,7 @@ main section h2 {
 #prompts .section-note, #prompts .filters, #prompts .card-list {
   position: relative;
   z-index: 1;
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Ensure section titles are visible with better contrast */
@@ -82,53 +82,72 @@ main section h2 {
   color: #333;
 }
 
-/* Ensure cards have proper background without image interference */
+/* Section-specific card styles */
 #noticias .card, #tutoriales .card, #apps .card, #prompts .card {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(33, 150, 243, 0.3) !important;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
-  border-radius: 12px !important;
-  padding: 0.9rem !important;
-  position: relative !important;
-  z-index: 3 !important;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+  border-radius: 12px;
+  padding: 0.9rem;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-/* Ensure filters have proper background */
-#noticias .filters, #tutoriales .filters, #apps .filters, #prompts .filters {
-  position: relative !important;
-  z-index: 3 !important;
-  background: rgba(255, 255, 255, 0.7) !important;
-  padding: 0.5rem !important;
-  border-radius: 8px !important;
-  border: 1px solid rgba(33, 150, 243, 0.3) !important;
-  backdrop-filter: blur(10px) !important;
+#noticias .card h3, #tutoriales .card h3, #apps .card h3, #prompts .card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text);
 }
 
-/* Ensure section notes have proper background */
-#noticias .section-note, #tutoriales .section-note, #apps .section-note, #prompts .section-note {
-  position: relative !important;
-  z-index: 3 !important;
-  background: rgba(21, 101, 192, 0.9) !important;
-  color: #ffffff !important;
-  padding: 0.4rem 0.8rem !important;
-  border-radius: 6px !important;
-  margin-top: 0.5rem !important;
-  font-weight: 500 !important;
-  display: inline-block !important;
+#noticias .card p, #tutoriales .card p, #apps .card p, #prompts .card p {
+  margin: 0.1rem 0;
+  color: var(--muted);
 }
 
-/* Remove any potential dark overlays */
+#noticias .card .meta, #tutoriales .card .meta, #apps .card .meta, #prompts .card .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+#noticias .card a, #tutoriales .card a, #apps .card a, #prompts .card a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+#noticias .card a:hover, #tutoriales .card a:hover, #apps .card a:hover, #prompts .card a:hover {
+  text-decoration: underline;
+}
+
+/* Remove any potential overlays */
 #tutoriales::before, #prompts::before {
-  display: none !important;
+  display: none;
 }
 
-/* Override general card styles for section cards */
-#noticias .card, #tutoriales .card, #apps .card, #prompts .card {
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgba(33, 150, 243, 0.3) !important;
-  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2) !important;
-  backdrop-filter: blur(10px) !important;
+/* Ensure filters and notes have proper styling */
+#noticias .filters, #tutoriales .filters, #apps .filters, #prompts .filters {
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+#noticias .section-note, #tutoriales .section-note, #apps .section-note, #prompts .section-note {
+  position: relative;
+  z-index: 3;
+  background: rgba(21, 101, 192, 0.9);
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
 }
 
 main {
@@ -167,14 +186,7 @@ select { padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--bor
 select option { background: #ffffff; color: var(--text); }
 
 .card-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-.card {
-  background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); backdrop-filter: blur(10px);
-}
-.card h3 { margin: 0; font-size: 1.05rem; color: var(--text); }
-.card p { margin: 0.1rem 0; color: var(--muted); }
-.card .meta { font-size: 0.85rem; color: var(--muted); }
-.card a { color: var(--link); text-decoration: none; }
-.card a:hover { text-decoration: underline; }
+
 .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; background: #e3f2fd; border: 1px solid var(--border); color: var(--text); font-size: 0.75rem; font-weight: 600; }
 
 .site-footer { border-top: 1px solid var(--border); background: var(--header-bg); }
