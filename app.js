@@ -65,70 +65,70 @@ const TUTORIALS = [
     description: 'Tutorial completo para generar imágenes profesionales usando FLUX, la nueva herramienta de IA.',
     category: 'Imágenes',
     link: '#',
-    date: '2024-03-15'
+    date: '2026-05-01'
   },
   {
     title: 'Crear videos con Kling AI',
     description: 'Aprende a generar videos increíbles con inteligencia artificial usando Kling AI paso a paso.',
     category: 'Video',
     link: '#',
-    date: '2024-03-20'
+    date: '2026-05-02'
   },
   {
     title: 'Curso completo de IA: De cero a agentes',
     description: 'Guía completa desde los fundamentos hasta crear agentes con N8N y automatizaciones con Make.',
     category: 'Automatización',
     link: '#',
-    date: '2024-03-25'
+    date: '2026-05-03'
   },
   {
     title: 'IA para principiantes - Curso básico',
     description: 'Entiende la inteligencia artificial sin conocimientos técnicos previos. Ideal para empezar.',
     category: 'Educación',
     link: '#',
-    date: '2024-04-01'
+    date: '2026-04-28'
   },
   {
-    title: 'Crear contenido con IA - Curso 2024',
+    title: 'Crear contenido con IA - Curso 2026',
     description: 'Aprende a crear contenido profesional usando herramientas de IA como ChatGPT, Midjourney y más.',
     category: 'Creatividad',
     link: '#',
-    date: '2024-04-05'
+    date: '2026-04-30'
   },
   {
     title: 'Automatización con Make y N8N',
     description: 'Tutorial práctico para automatizar tareas con Make y crear agentes personalizados con N8N.',
     category: 'Automatización',
     link: '#',
-    date: '2024-04-10'
+    date: '2026-04-25'
   },
   {
     title: 'Ingeniería de Prompts avanzada',
     description: 'Domina ChatGPT y otras IA con técnicas avanzadas de prompts para obtener mejores resultados.',
     category: 'Prompts',
     link: '#prompts',
-    date: '2024-04-15'
+    date: '2026-04-20'
   },
   {
     title: 'Crear GPTs personalizados',
     description: 'Cómo crear tus propios GPTs personalizados para tareas específicas y aumentar tu productividad.',
     category: 'ChatGPT',
     link: 'https://chat.openai.com',
-    date: '2024-04-20'
+    date: '2026-04-15'
   },
   {
     title: 'Canva IA para diseño rápido',
     description: 'Usa Canva con IA para crear diseños profesionales en minutos sin experiencia en diseño.',
     category: 'Diseño',
     link: 'https://www.canva.com',
-    date: '2024-04-25'
+    date: '2026-04-10'
   },
   {
     title: 'Fundamentos de IA - Elementos AI',
     description: 'Curso gratuito de la Universidad de Helsinki con ejercicios prácticos sobre fundamentos de IA.',
     category: 'Educación',
     link: '#',
-    date: '2024-05-01'
+    date: '2026-04-05'
   }
 ];
 
