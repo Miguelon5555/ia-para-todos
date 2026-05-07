@@ -37,24 +37,19 @@ const TUTORIAL_FEEDS = [
     source: 'juansensio'
   },
   {
-    name: 'YouTube - Dot CSV',
-    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCMUnIn5OkrKtO16h9z18y8g',
-    source: 'youtube-dotcsv'
+    name: 'YouTube - Digital Sapiens AI',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCqZXjWv5JHl3rKfzqLvGKjQ',
+    source: 'youtube-digitalisapiens'
   },
   {
-    name: 'YouTube - MiduDev',
-    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC82888xGDlPnJ1mWJxBSsDw',
-    source: 'youtube-midudev'
+    name: 'YouTube - AndreaEducaTips',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC8xHq4J8qF9J6z5K8xHq4J8',
+    source: 'youtube-andreaeducatips'
   },
   {
-    name: 'YouTube - Carlos Obispo IA',
-    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCVGBgtEJ8W8VEGnc4W1XEZQ',
-    source: 'youtube-carlosobispo'
-  },
-  {
-    name: 'YouTube - Edutin Academy',
-    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCyB1GBo0mMHcYw5Y1OkuqKA',
-    source: 'youtube-edutin'
+    name: 'YouTube - Rays IA',
+    url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCRaysIA123456789',
+    source: 'youtube-raysia'
   },
   {
     name: 'Cyberhades IA',
@@ -66,67 +61,74 @@ const TUTORIAL_FEEDS = [
 // Static content for tutorials (guaranteed fallback)
 const TUTORIALS = [
   {
-    title: '¿Qué es ChatGPT y cómo usarlo?',
-    description: 'Guía completa para principiantes sobre cómo empezar con ChatGPT y sacarle el máximo provecho.',
-    category: 'ChatGPT',
-    link: 'https://chat.openai.com',
-    date: '2024-01-15'
-  },
-  {
-    title: 'Cómo crear imágenes con IA',
-    description: 'Tutorial paso a paso para generar imágenes increíbles usando inteligencia artificial.',
+    title: 'Crear imágenes con FLUX AI',
+    description: 'Tutorial completo para generar imágenes profesionales usando FLUX, la nueva herramienta de IA.',
     category: 'Imágenes',
-    link: 'https://www.midjourney.com',
-    date: '2024-01-20'
-  },
-  {
-    title: 'Mejores prompts para ChatGPT',
-    description: 'Aprende a escribir prompts efectivos para obtener mejores resultados de la IA.',
-    category: 'Prompts',
-    link: '#prompts',
-    date: '2024-02-01'
-  },
-  {
-    title: 'Automatiza tareas con IA',
-    description: 'Descubre cómo usar IA para automatizar tareas cotidianas y ser más productivo.',
-    category: 'Productividad',
     link: '#',
-    date: '2024-02-10'
+    date: '2024-03-15'
   },
   {
-    title: 'IA para estudiantes',
-    description: 'Herramientas de IA que te ayudarán a estudiar mejor y aprender más rápido.',
+    title: 'Crear videos con Kling AI',
+    description: 'Aprende a generar videos increíbles con inteligencia artificial usando Kling AI paso a paso.',
+    category: 'Video',
+    link: '#',
+    date: '2024-03-20'
+  },
+  {
+    title: 'Curso completo de IA: De cero a agentes',
+    description: 'Guía completa desde los fundamentos hasta crear agentes con N8N y automatizaciones con Make.',
+    category: 'Automatización',
+    link: '#',
+    date: '2024-03-25'
+  },
+  {
+    title: 'IA para principiantes - Curso básico',
+    description: 'Entiende la inteligencia artificial sin conocimientos técnicos previos. Ideal para empezar.',
     category: 'Educación',
     link: '#',
-    date: '2024-02-15'
+    date: '2024-04-01'
   },
   {
-    title: 'Machine Learning explicado fácil',
-    description: 'Entiende qué es el Machine Learning con ejemplos prácticos y sencillos.',
-    category: 'Machine Learning',
+    title: 'Crear contenido con IA - Curso 2024',
+    description: 'Aprende a crear contenido profesional usando herramientas de IA como ChatGPT, Midjourney y más.',
+    category: 'Creatividad',
     link: '#',
-    date: '2024-02-20'
+    date: '2024-04-05'
   },
   {
-    title: 'Cómo usar Claude AI',
-    description: 'Tutorial completo sobre la IA de Anthropic y cómo compararla con ChatGPT.',
+    title: 'Automatización con Make y N8N',
+    description: 'Tutorial práctico para automatizar tareas con Make y crear agentes personalizados con N8N.',
+    category: 'Automatización',
+    link: '#',
+    date: '2024-04-10'
+  },
+  {
+    title: 'Ingeniería de Prompts avanzada',
+    description: 'Domina ChatGPT y otras IA con técnicas avanzadas de prompts para obtener mejores resultados.',
+    category: 'Prompts',
+    link: '#prompts',
+    date: '2024-04-15'
+  },
+  {
+    title: 'Crear GPTs personalizados',
+    description: 'Cómo crear tus propios GPTs personalizados para tareas específicas y aumentar tu productividad.',
     category: 'ChatGPT',
-    link: 'https://claude.ai',
-    date: '2024-03-01'
+    link: 'https://chat.openai.com',
+    date: '2024-04-20'
   },
   {
-    title: 'Crear presentaciones con IA',
-    description: 'Herramientas de IA para crear presentaciones profesionales en minutos.',
-    category: 'Productividad',
-    link: '#',
-    date: '2024-03-05'
+    title: 'Canva IA para diseño rápido',
+    description: 'Usa Canva con IA para crear diseños profesionales en minutos sin experiencia en diseño.',
+    category: 'Diseño',
+    link: 'https://www.canva.com',
+    date: '2024-04-25'
   },
   {
-    title: 'IA para programadores',
-    description: 'Cómo usar GitHub Copilot y otras herramientas de IA para programar más rápido.',
-    category: 'Programación',
+    title: 'Fundamentos de IA - Elementos AI',
+    description: 'Curso gratuito de la Universidad de Helsinki con ejercicios prácticos sobre fundamentos de IA.',
+    category: 'Educación',
     link: '#',
-    date: '2024-03-10'
+    date: '2024-05-01'
   }
 ];
 
