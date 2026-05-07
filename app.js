@@ -61,74 +61,67 @@ const TUTORIAL_FEEDS = [
 // Static content for tutorials (guaranteed fallback)
 const TUTORIALS = [
   {
-    title: 'Crear imágenes con FLUX AI',
-    description: 'Tutorial completo para generar imágenes profesionales usando FLUX, la nueva herramienta de IA.',
-    category: 'Imágenes',
-    link: '#',
+    title: 'Los Mejores Cursos de IA para 2026',
+    description: 'Guía completa con los mejores cursos de IA: Prompt Engineering, LearnPrompting, OpenAI y más recursos gratuitos.',
+    category: 'Cursos',
+    link: 'https://iamdgarcia.substack.com/p/los-mejores-cursos-de-ia-para-2026',
     date: '2026-05-01'
   },
   {
-    title: 'Crear videos con Kling AI',
-    description: 'Aprende a generar videos increíbles con inteligencia artificial usando Kling AI paso a paso.',
-    category: 'Video',
-    link: '#',
-    date: '2026-05-02'
-  },
-  {
-    title: 'Curso completo de IA: De cero a agentes',
-    description: 'Guía completa desde los fundamentos hasta crear agentes con N8N y automatizaciones con Make.',
-    category: 'Automatización',
-    link: '#',
-    date: '2026-05-03'
-  },
-  {
-    title: 'IA para principiantes - Curso básico',
-    description: 'Entiende la inteligencia artificial sin conocimientos técnicos previos. Ideal para empezar.',
+    title: 'Cómo aprender IA desde cero en 2026',
+    description: 'Guía completa de DataCamp sobre cómo empezar con IA: consejos, recursos y rutas de aprendizaje actualizadas.',
     category: 'Educación',
-    link: '#',
+    link: 'https://www.datacamp.com/es/blog/how-to-learn-ai',
     date: '2026-04-28'
   },
   {
-    title: 'Crear contenido con IA - Curso 2026',
-    description: 'Aprende a crear contenido profesional usando herramientas de IA como ChatGPT, Midjourney y más.',
-    category: 'Creatividad',
-    link: '#',
-    date: '2026-04-30'
+    title: 'Crear imágenes con FLUX AI - Tutorial',
+    description: 'Tutorial práctico para generar imágenes profesionales usando FLUX, la herramienta de IA más avanzada.',
+    category: 'Imágenes',
+    link: 'https://www.youtube.com/results?search_query=FLUX+AI+tutorial+espa%C3%B1ol+2026',
+    date: '2026-05-02'
+  },
+  {
+    title: 'Crear videos con Kling AI - Guía completa',
+    description: 'Aprende a generar videos increíbles con Kling AI paso a paso. Tutorial actualizado 2026.',
+    category: 'Video',
+    link: 'https://www.youtube.com/results?search_query=Kling+AI+tutorial+espa%C3%B1ol',
+    date: '2026-05-03'
   },
   {
     title: 'Automatización con Make y N8N',
-    description: 'Tutorial práctico para automatizar tareas con Make y crear agentes personalizados con N8N.',
+    description: 'Tutoriales prácticos para automatizar tareas con Make y crear agentes con N8N. Contenido actualizado.',
     category: 'Automatización',
-    link: '#',
+    link: 'https://www.youtube.com/results?search_query=Make+N8N+automatizaci%C3%B3n+IA+tutorial',
+    date: '2026-04-30'
+  },
+  {
+    title: 'Ingeniería de Prompts - Guía definitiva',
+    description: 'Domina ChatGPT y otras IA con técnicas avanzadas de prompts. Recursos y ejemplos prácticos.',
+    category: 'Prompts',
+    link: 'https://www.youtube.com/results?search_query=prompt+engineering+avanzado+ChatGPT+2026',
     date: '2026-04-25'
   },
   {
-    title: 'Ingeniería de Prompts avanzada',
-    description: 'Domina ChatGPT y otras IA con técnicas avanzadas de prompts para obtener mejores resultados.',
-    category: 'Prompts',
-    link: '#prompts',
+    title: 'Como Estar al Día con la IA en 2026',
+    description: '15 fuentes, 5 newsletters, podcasts y rutina semanal de 30 minutos para mantenerte actualizado en IA.',
+    category: 'Recursos',
+    link: 'https://www.javadex.es/blog/como-estar-al-dia-inteligencia-artificial-fuentes-rutina-2026',
     date: '2026-04-20'
   },
   {
-    title: 'Crear GPTs personalizados',
-    description: 'Cómo crear tus propios GPTs personalizados para tareas específicas y aumentar tu productividad.',
+    title: 'Crear GPTs personalizados - Tutorial',
+    description: 'Cómo crear tus propios GPTs para tareas específicas y aumentar tu productividad con IA.',
     category: 'ChatGPT',
-    link: 'https://chat.openai.com',
+    link: 'https://www.youtube.com/results?search_query=crear+GPTs+personalizados+tutorial+2026',
     date: '2026-04-15'
   },
   {
-    title: 'Canva IA para diseño rápido',
-    description: 'Usa Canva con IA para crear diseños profesionales en minutos sin experiencia en diseño.',
-    category: 'Diseño',
-    link: 'https://www.canva.com',
+    title: 'Mejores Bootcamps de IA 2026',
+    description: 'Guía honesta de los mejores bootcamps de inteligencia artificial: programas intensivos, online y en español.',
+    category: 'Cursos',
+    link: 'https://formarsemola.com/mejores-bootcamps-de-inteligencia-artificial-2025/',
     date: '2026-04-10'
-  },
-  {
-    title: 'Fundamentos de IA - Elementos AI',
-    description: 'Curso gratuito de la Universidad de Helsinki con ejercicios prácticos sobre fundamentos de IA.',
-    category: 'Educación',
-    link: '#',
-    date: '2026-04-05'
   }
 ];
 
