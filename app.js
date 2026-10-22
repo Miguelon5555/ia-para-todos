@@ -220,7 +220,10 @@ async function fetchNewsFeeds() {
   
   if (!newsList) return;
   
-  newsList.innerHTML = '<li class="loading">Cargando noticias...</li>';
+  // Si el HTML ya viene pre-renderizado, se conserva mientras carga la versión más reciente
+  if (!newsList.children.length) {
+    newsList.innerHTML = '<li class="loading">Cargando noticias...</li>';
+  }
   
   const allNews = [];
   const sources = new Set();
@@ -255,7 +258,9 @@ async function fetchNewsFeeds() {
   }
   
   if (allNews.length === 0) {
-    newsList.innerHTML = '<li class="empty">No se pudieron cargar las noticias. Intenta más tarde.</li>';
+    if (!newsList.children.length) {
+      newsList.innerHTML = '<li class="empty">No se pudieron cargar las noticias. Intenta más tarde.</li>';
+    }
     console.error('❌ Ningún feed RSS cargó correctamente');
     return;
   }
