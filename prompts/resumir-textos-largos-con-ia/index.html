@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resumir textos con IA sin perder nada clave | IA para todos</title>
+  <meta name="description" content="Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://iaforall.netlify.app/prompts/resumir-textos-largos-con-ia/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://iaforall.netlify.app/prompts/resumir-textos-largos-con-ia/" />
+  <meta property="og:title" content="Resumir textos con IA sin perder nada clave" />
+  <meta property="og:description" content="Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="IA para todos" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Resumir textos con IA sin perder nada clave" />
+  <meta name="twitter:description" content="Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Resumir textos con IA sin perder nada clave", "description": "Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo.", "inLanguage": "es", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "mainEntityOfPage": "https://iaforall.netlify.app/prompts/resumir-textos-largos-con-ia/", "author": {"@type": "Organization", "name": "IA para todos"}, "publisher": {"@type": "Organization", "name": "IA para todos"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Puedo pegar documentos PDF directamente?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del asistente que uses. Algunos permiten adjuntar archivos, otros solo admiten texto pegado directamente. Si solo puedes pegar texto, copia el contenido del PDF y pégalo en el chat. Si el documento es muy largo, puede que tengas que dividirlo en partes y resumir cada una por separado."}}, {"@type": "Question", "name": "¿El resumen puede estar mal aunque suene bien?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, y es el riesgo más importante de este uso. La IA construye frases que suenan coherentes, pero puede omitir un dato relevante o simplificar un argumento de forma que cambie su significado. Por eso conviene leer el resumen con el texto original cerca, al menos la primera vez que usas un prompt nuevo, para comprobar que no falta nada crítico."}}, {"@type": "Question", "name": "¿Funciona igual con textos en otros idiomas?", "acceptedAnswer": {"@type": "Answer", "text": "Los asistentes de IA actuales manejan bien los idiomas más comunes, pero el rendimiento puede bajar con textos en idiomas menos extendidos o con jerga muy especializada. Si el texto original está en inglés y quieres el resumen en español, puedes pedírselo directamente en el prompt: suele funcionar bien, aunque conviene revisar que los términos técnicos se hayan traducido de forma correcta."}}]}</script>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .guia { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.96); color: #263238; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; line-height: 1.65; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); }
+    .guia h1 { margin-top: 0; color: var(--text); line-height: 1.25; }
+    .guia h2 { color: var(--text); margin-top: 2rem; }
+    .guia h3 { color: var(--text); margin-bottom: 0.3rem; }
+    .guia a { color: var(--link); }
+    .guia .migas, .guia .meta { color: var(--muted); font-size: 0.9rem; }
+    .guia .resumen { font-size: 1.1rem; background: #e3f2fd; border-left: 4px solid var(--accent); padding: 0.8rem 1rem; border-radius: 6px; }
+    .guia .bloque { white-space: pre-wrap; word-break: break-word; background: #f5f9ff; border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem; }
+    .guia .prompt { background: #0d47a1; color: #ffffff; border-color: #0d47a1; }
+    .guia .copiar { padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid var(--accent); background: #ffffff; color: var(--text); cursor: pointer; font-weight: 600; }
+    .guia .copiar:hover { background: #e3f2fd; }
+    .guia .nota { background: #fff8e1; border-left: 4px solid #ffb300; padding: 0.8rem 1rem; border-radius: 6px; margin: 1.5rem 0; }
+    .guia .mas-guias ul { padding-left: 1.2rem; }
+    .guia .mas-guias li { margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="tagline"><a href="/">IA para todos</a> — Noticias, tutoriales, apps y prompts, en tono casual.</p>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#guias">Guías</a>
+        <a href="/#noticias">Noticias</a>
+        <a href="/#tutoriales">Tutoriales</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="guia">
+      <p class="migas"><a href="/">Inicio</a> › <a href="/#guias">Guías de prompts</a></p>
+      <h1>Resumir textos con IA sin perder nada clave</h1>
+      <p class="meta">Actualizado el 27 de octubre de 2026 · <span class="badge">Productividad</span></p>
+      <p class="resumen">Para resumir textos con IA sin perder lo importante, el truco no está en pedirle &#x27;resume esto&#x27;, sino en decirle exactamente qué tipo de información necesitas conservar, para qué vas a usar el resumen y en qué formato lo quieres. El prompt de partida funciona, pero se puede mejorar bastante añadiendo contexto sobre tu situación y lo que buscas extraer.</p>
+      <h2>Para quién es útil</h2>
+      <p>Para estudiantes que tienen que leer artículos académicos o apuntes densos, y para profesionales que se enfrentan a informes largos, correos en cadena o documentos de trabajo que no tienen tiempo de leer enteros.</p>
+      <h2>Cómo funciona</h2>
+      <h3>Por qué el prompt básico se queda corto</h3>
+      <p>Pedirle a un asistente de IA que &#x27;resuma en 3 puntos&#x27; funciona, pero el resultado suele ser genérico. La IA no sabe si eres un médico leyendo un protocolo clínico o un estudiante preparando un examen de historia. Sin ese contexto, tiende a quedarse con lo que aparece al principio y al final del texto, y a ignorar detalles que para ti pueden ser fundamentales. Añadir quién eres y para qué usas el resumen cambia el resultado de forma notable.</p>
+      <h3>El papel del formato en el resultado</h3>
+      <p>Decirle a la IA en qué formato quieres la información no es un capricho. Si le pides puntos numerados, obtienes algo que puedes repasar rápido. Si le pides un párrafo, el resultado fluye mejor para compartirlo o incluirlo en un correo. Si le pides que separe hechos de conclusiones, te ayuda a distinguir qué es dato y qué es interpretación, algo especialmente útil en textos académicos o periodísticos. Especificar el formato ahorra tiempo de edición posterior.</p>
+      <h3>Qué hace la instrucción de &#x27;mantener lo más importante&#x27;</h3>
+      <p>Esta parte del prompt original es más útil de lo que parece, pero es vaga. La IA interpreta &#x27;importante&#x27; según el texto, no según tus necesidades. Sustituirla por algo más concreto, como &#x27;mantén las cifras, fechas y conclusiones del autor&#x27;, o &#x27;prioriza las recomendaciones prácticas&#x27;, le da una guía mucho más clara. Sin esa especificación, puedes recibir un resumen correcto pero que no incluye exactamente lo que ibas a subrayar.</p>
+      <h3>La importancia de indicar la extensión</h3>
+      <p>Si no dices cuánto quieres, la IA decide por su cuenta. A veces el resultado es demasiado corto y pierde matices, otras veces es casi tan largo como el original. Indicar la extensión, ya sea en número de puntos, de párrafos o de palabras aproximadas, te da más control sobre la utilidad del resumen. Para un correo de trabajo, tres frases pueden ser suficientes. Para preparar un examen, puede que necesites más.</p>
+      <h2>Ejemplo paso a paso</h2>
+      <p><strong>Situación:</strong> Eres estudiante de Derecho y tienes que leer una sentencia de 15 páginas antes de una clase. Solo te quedan 20 minutos y necesitas entender los argumentos principales del tribunal.</p>
+      <p><strong>Lo que le pides a la IA:</strong></p>
+      <pre class="bloque">Actúa como ayudante de estudio para un estudiante de Derecho. Lee el siguiente texto y extrae: 1) el hecho principal que se juzga, 2) los argumentos clave del tribunal, y 3) la conclusión o fallo. Sé preciso con los términos jurídicos y no omitas fechas ni referencias legales importantes. Extensión máxima: 200 palabras.
+
+[pega aquí el texto de la sentencia]</pre>
+      <p><strong>Qué suele devolver</strong> (ejemplo ilustrativo; el resultado real varía):</p>
+      <pre class="bloque">El asistente devuelve un bloque estructurado en tres secciones claramente separadas. En la primera describe el caso en una o dos frases con las partes implicadas y la fecha. En la segunda lista los argumentos del tribunal con los artículos o precedentes que menciona el texto. En la tercera indica el fallo de forma directa. El resultado cabe en media página y permite seguir la clase sin haber leído el documento completo.</pre>
+      <h2>El prompt listo para copiar</h2>
+      <div class="copiable">
+        <pre id="prompt-principal" class="bloque prompt">Actúa como [asistente de estudio / analista de documentos / ayudante de trabajo]. Voy a pegarte un texto largo y necesito un resumen estructurado para [preparar un examen / tomar una decisión / redactar una respuesta / otro uso concreto].
+
+Extrae exactamente esto:
+1. La idea central del texto en una sola frase.
+2. Los [3-5] puntos más relevantes, priorizando [datos, fechas y cifras / recomendaciones prácticas / argumentos del autor / otro].
+3. La conclusión o el mensaje final del autor.
+
+No añadas interpretaciones propias ni información que no esté en el texto. Si algo no queda claro en el original, indícalo. Extensión máxima del resumen: [100 / 200 / 300] palabras.
+
+[Pega aquí el texto]</pre>
+        <button type="button" class="copiar" data-target="prompt-principal">Copiar prompt</button>
+      </div>
+      <h2>Variantes para otros casos</h2>
+      <h3>Para correos o cadenas de mensajes largos</h3>
+      <div class="copiable">
+        <pre id="variante-1" class="bloque prompt">Lee esta cadena de correos y dime: 1) de qué trata el hilo en una frase, 2) qué se ha decidido hasta ahora, si es que se ha decidido algo, y 3) qué acción se espera de mí o qué pregunta está sin responder. Sé directo, sin parafrasear todo el hilo.
+
+[Pega aquí el hilo de correos]</pre>
+        <button type="button" class="copiar" data-target="variante-1">Copiar prompt</button>
+      </div>
+      <h3>Para artículos académicos o de investigación</h3>
+      <div class="copiable">
+        <pre id="variante-2" class="bloque prompt">Resume este artículo académico para alguien que conoce el tema pero no ha leído el texto. Incluye: el objetivo del estudio, la metodología en una frase, los resultados principales y las limitaciones que mencionen los autores. No inventes datos ni rellenes con información externa al texto. Extensión: máximo [150-250] palabras.
+
+[Pega aquí el artículo o el fragmento]</pre>
+        <button type="button" class="copiar" data-target="variante-2">Copiar prompt</button>
+      </div>
+      <h3>Para documentos de trabajo o informes de empresa</h3>
+      <div class="copiable">
+        <pre id="variante-3" class="bloque prompt">Eres un asistente ejecutivo. Lee este informe y prepara un resumen para alguien que tiene que tomar una decisión sobre [el tema del informe] pero no tiene tiempo de leerlo entero. Destaca: el problema o situación que describe, las opciones o propuestas que plantea, y la recomendación final si la hay. Usa un tono profesional y directo.
+
+[Pega aquí el informe]</pre>
+        <button type="button" class="copiar" data-target="variante-3">Copiar prompt</button>
+      </div>
+      <h2>Errores comunes</h2>
+      <ul>
+        <li>Pegar el texto sin ninguna instrucción adicional y esperar que la IA sepa qué es lo más relevante para ti: el resultado será correcto pero probablemente no útil.</li>
+        <li>No indicar la extensión del resumen, lo que puede hacer que el resultado sea demasiado largo o tan corto que pierde información clave.</li>
+        <li>Asumir que el resumen es fiel al cien por cien sin revisarlo: la IA puede omitir detalles importantes o, en textos técnicos, simplificar un concepto de forma inexacta.</li>
+        <li>Usar este método con textos que superan el límite de caracteres que admite el asistente sin avisar, lo que hace que la IA resuma solo una parte del documento sin decírtelo.</li>
+      </ul>
+      <h2>Cuándo no usarlo</h2>
+      <p>Si el texto contiene información muy técnica o especializada, como un contrato legal, un informe médico o un documento financiero con implicaciones reales, no conviene fiarse del resumen de la IA sin revisarlo con alguien que entienda el campo. La IA puede simplificar un matiz que en ese contexto es crítico. Tampoco es buena idea usarlo si necesitas citar el texto original con exactitud: el resumen parafrasea, no transcribe, y puede alterar el sentido de una frase aunque no lo parezca.</p>
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿Puedo pegar documentos PDF directamente?</h3>
+      <p>Depende del asistente que uses. Algunos permiten adjuntar archivos, otros solo admiten texto pegado directamente. Si solo puedes pegar texto, copia el contenido del PDF y pégalo en el chat. Si el documento es muy largo, puede que tengas que dividirlo en partes y resumir cada una por separado.</p>
+      <h3>¿El resumen puede estar mal aunque suene bien?</h3>
+      <p>Sí, y es el riesgo más importante de este uso. La IA construye frases que suenan coherentes, pero puede omitir un dato relevante o simplificar un argumento de forma que cambie su significado. Por eso conviene leer el resumen con el texto original cerca, al menos la primera vez que usas un prompt nuevo, para comprobar que no falta nada crítico.</p>
+      <h3>¿Funciona igual con textos en otros idiomas?</h3>
+      <p>Los asistentes de IA actuales manejan bien los idiomas más comunes, pero el rendimiento puede bajar con textos en idiomas menos extendidos o con jerga muy especializada. Si el texto original está en inglés y quieres el resumen en español, puedes pedírselo directamente en el prompt: suele funcionar bien, aunque conviene revisar que los términos técnicos se hayan traducido de forma correcta.</p>
+      <!-- REL:START -->
+<!-- REL:END -->
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>¿Tienes algo que contarme? Escríbeme a mi buzón:
+        <a href="mailto:cacharritos2002@gmail.com">cacharritos2002@gmail.com</a>
+      </p>
+      <p class="small">Hecho con cariño y café ☕️ — IA sin complicaciones.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copiar').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var el = document.getElementById(b.dataset.target);
+        if (!el || !navigator.clipboard) return;
+        navigator.clipboard.writeText(el.textContent).then(function () {
+          var t = b.textContent;
+          b.textContent = '¡Copiado!';
+          setTimeout(function () { b.textContent = t; }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
