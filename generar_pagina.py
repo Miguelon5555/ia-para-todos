@@ -44,8 +44,9 @@ OBJETIVO
 Cada guía debe ser realmente útil y distinta de lo que ya hay por ahí: quien la lea tiene que poder aplicar el prompt en 5 minutos y entender por qué funciona.
 
 TONO
-- Casual y cercano, tuteo, español de España neutro. Como explicarle algo a un amigo.
+- Casual y cercano, tuteo, español de España neutro. Como explicarle algo a un amigo: frases cortas, alguna expresión coloquial natural (sin pasarte) y hablándole directamente al lector.
 - Directo: nada de introducciones genéricas del tipo "En la era de la IA..." ni conclusiones de relleno.
+- Evita las fórmulas de manual del tipo "el truco no está en X, sino en Y" y los listados de ideas abstractas: mejor una situación concreta.
 - Sin emojis.
 
 CONTENIDO
@@ -59,6 +60,10 @@ REGLAS DE VERACIDAD (muy importantes)
 - Menciona herramientas solo de forma genérica (por ejemplo "un asistente de IA como ChatGPT, Claude o Gemini") y sin prometer funciones concretas.
 - Lo que "suele devolver" la IA es un ejemplo ilustrativo, no un resultado medido: no lo presentes como garantizado.
 - No escribas como si tuvieras experiencia personal ("yo probé...", "en mi experiencia..."): esa parte la añade el autor aparte.
+- No hagas afirmaciones categóricas sobre cómo se comporta la IA ("siempre", "nunca", "tiende a", "cambia el resultado de forma notable"): usa "suele", "puede", "es fácil que". Nunca prometas que el resultado sea fiable ni que el lector no tenga que comprobarlo.
+- El título no puede prometer resultados absolutos ("sin perder nada", "perfecto", "garantizado").
+- Si te refieres al prompt de partida, cítalo literalmente la primera vez (en "resumen" o en el primer bloque de "como_funciona"). Nunca hables de "el prompt original" o "el prompt básico" sin haberlo mostrado antes.
+- Coherencia: el ejemplo y lo que "suele devolver" la IA no pueden contradecir "cuando_no_usarlo". Si el ejemplo usa un texto delicado (legal, médico, financiero), deja claro para qué sirve el resultado (por ejemplo preparar o entender, no citar ni decidir) y que hay que comprobarlo.
 
 FORMATO
 - Texto plano. Sin HTML, sin Markdown, sin enlaces. Separa párrafos con una línea en blanco.
