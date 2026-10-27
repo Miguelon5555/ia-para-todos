@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "resumir-textos-largos-con-ia",
+    "tema": "Cómo resumir textos largos con IA sin perder lo importante",
+    "prompt_base": "Resume el siguiente texto en 3 puntos clave manteniendo la información más importante:",
+    "categoria": "Productividad",
+    "palabra_clave": "resumir textos con IA",
+    "angulo": "Estudiantes y profesionales con documentos, artículos o correos largos y poco tiempo",
+    "nota_personal": ""
+  },
+  {
+    "slug": "mejorar-emails-profesionales-con-ia",
+    "tema": "Cómo mejorar tus emails profesionales con IA",
+    "prompt_base": "Reescribe este email de forma más profesional y clara:",
+    "categoria": "Productividad",
+    "palabra_clave": "mejorar emails con IA",
+    "angulo": "Personas que escriben correos de trabajo y quieren sonar claras y profesionales sin perder su tono",
+    "nota_personal": ""
+  },
+  {
+    "slug": "ideas-de-contenido-con-ia",
+    "tema": "Cómo generar ideas de contenido con IA",
+    "prompt_base": "Dame 10 ideas creativas para [tema] dirigidas a [audiencia]:",
+    "categoria": "Creatividad",
+    "palabra_clave": "ideas de contenido con IA",
+    "angulo": "Creadores de contenido, autónomos y pequeños negocios que se quedan sin ideas para redes y blog",
+    "nota_personal": ""
+  },
+  {
+    "slug": "traducir-textos-con-ia-manteniendo-el-tono",
+    "tema": "Cómo traducir textos con IA manteniendo el tono original",
+    "prompt_base": "Traduce el siguiente texto al inglés manteniendo el tono y estilo original:",
+    "categoria": "Idiomas",
+    "palabra_clave": "traducir textos con IA",
+    "angulo": "Personas que traducen correos, textos de trabajo o contenido y quieren que suene natural, no literal",
+    "nota_personal": ""
+  },
+  {
+    "slug": "explicar-conceptos-complejos-con-ia",
+    "tema": "Cómo pedirle a la IA que te explique conceptos complejos",
+    "prompt_base": "Explícame [concepto] como si tuviera 10 años, con ejemplos sencillos:",
+    "categoria": "Educación",
+    "palabra_clave": "explicar conceptos con IA",
+    "angulo": "Estudiantes y curiosos que quieren entender un tema difícil desde cero, y cómo comprobar que lo han entendido",
+    "nota_personal": ""
+  },
+  {
+    "slug": "generar-codigo-con-ia-con-comentarios",
+    "tema": "Cómo pedirle a la IA código bien comentado",
+    "prompt_base": "Escribe un código en [lenguaje] que haga [funcionalidad]. Incluye comentarios explicativos:",
+    "categoria": "Programación",
+    "palabra_clave": "generar código con IA",
+    "angulo": "Principiantes en programación y personas no técnicas que quieren pequeños scripts, y por qué hay que revisar y probar lo que devuelve la IA",
+    "nota_personal": ""
+  }
+]
