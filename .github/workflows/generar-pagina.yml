@@ -1,0 +1,68 @@
+name: Generar guía original (con revisión)
+
+on:
+  workflow_dispatch:
+  # Cuando las primeras guías te convenzan, descomenta estas líneas para generar
+  # una guía los martes y viernes a las 08:00 UTC:
+  # schedule:
+  #   - cron: '0 8 * * 2,5'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repo
+        uses: actions/checkout@v4
+
+      - name: Comprobar si ya hay una guía pendiente de revisar
+        id: pendiente
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh pr list --label guia-pendiente --state open --json number --jq 'length')
+          echo "n=$n" >> "$GITHUB_OUTPUT"
+          if [ "$n" != "0" ]; then
+            echo "Ya hay una guía esperando revisión: aprueba o cierra ese Pull Request antes de generar otra."
+          fi
+
+      - name: Configurar Python
+        if: steps.pendiente.outputs.n == '0'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        if: steps.pendiente.outputs.n == '0'
+        run: pip install anthropic
+
+      - name: Generar la guía con Claude
+        if: steps.pendiente.outputs.n == '0'
+        id: gen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generar_pagina.py
+
+      - name: Crear rama y Pull Request
+        if: steps.pendiente.outputs.n == '0' && steps.gen.outputs.slug != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLUG: ${{ steps.gen.outputs.slug }}
+          TITULO: ${{ steps.gen.outputs.titulo }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "guia/$SLUG"
+          git add prompts guias.json sitemap.xml index.html
+          git commit -m "Nueva guía: $TITULO"
+          git push origin "guia/$SLUG"
+          gh label create guia-pendiente --color 1d76db --description "Guía generada pendiente de revisar" 2>/dev/null || true
+          gh pr create \
+            --base main \
+            --head "guia/$SLUG" \
+            --title "Nueva guía: $TITULO" \
+            --body-file pr_body.md \
+            --label guia-pendiente
