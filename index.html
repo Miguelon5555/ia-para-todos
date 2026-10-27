@@ -58,6 +58,18 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   
   <link rel="stylesheet" href="styles.css" />
+  <!-- GUIAS:STYLE -->
+  <style>
+    #guias { padding: 1.5rem; border-radius: 12px; background: rgba(227, 242, 253, 0.85); }
+    #guias h2 { position: relative; z-index: 2; margin-bottom: 1rem; }
+    #guias .section-note { position: relative; z-index: 3; }
+    #guias .card-list { position: relative; z-index: 3; }
+    #guias .card { background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(33, 150, 243, 0.3); box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); border-radius: 12px; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    #guias .card h3 { margin: 0; font-size: 1.05rem; }
+    #guias .card p { margin: 0.1rem 0; color: var(--muted); }
+    #guias .card a { color: var(--link); text-decoration: none; }
+    #guias .card a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -65,6 +77,9 @@
       <h1>IA para todos</h1>
       <p class="tagline">Noticias, tutoriales, apps y prompts — en tono casual.</p>
       <nav class="nav">
+        <!-- GUIAS_NAV:START -->
+<a href="#guias">Guías</a>
+        <!-- GUIAS_NAV:END -->
         <a href="#noticias">Noticias</a>
         <a href="#tutoriales">Tutoriales</a>
         <a href="#apps">Apps recomendadas</a>
@@ -78,6 +93,19 @@
   </header>
 
   <main class="container" itemscope itemtype="https://schema.org/Blog">
+    <!-- GUIAS:START -->
+    <section id="guias" aria-labelledby="guias-title">
+      <h2 id="guias-title">Guías de prompts</h2>
+      <p class="section-note">Guías originales con ejemplos y el prompt listo para copiar.</p>
+      <ul id="guiasList" class="card-list">
+        <li class="card">
+          <h3><a href="/prompts/resumir-textos-largos-con-ia/">Resumir textos con IA sin perder nada clave</a></h3>
+          <p>Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo.</p>
+          <div class="meta"><span class="badge">Productividad</span></div>
+        </li>
+      </ul>
+    </section>
+    <!-- GUIAS:END -->
     <section id="noticias" aria-labelledby="news-title" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
       <h2 id="news-title" itemprop="name">Noticias diarias</h2>
       <div class="filters">
