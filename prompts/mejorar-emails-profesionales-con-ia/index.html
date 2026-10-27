@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mejora tus emails con IA sin sonar a robot | IA para todos</title>
+  <meta name="description" content="Aprende a mejorar emails con IA usando prompts concretos. Guía práctica para sonar profesional sin perder tu tono ni tardar más de 5 minutos." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://iaforall.netlify.app/prompts/mejorar-emails-profesionales-con-ia/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://iaforall.netlify.app/prompts/mejorar-emails-profesionales-con-ia/" />
+  <meta property="og:title" content="Mejora tus emails con IA sin sonar a robot" />
+  <meta property="og:description" content="Aprende a mejorar emails con IA usando prompts concretos. Guía práctica para sonar profesional sin perder tu tono ni tardar más de 5 minutos." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="IA para todos" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mejora tus emails con IA sin sonar a robot" />
+  <meta name="twitter:description" content="Aprende a mejorar emails con IA usando prompts concretos. Guía práctica para sonar profesional sin perder tu tono ni tardar más de 5 minutos." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mejora tus emails con IA sin sonar a robot", "description": "Aprende a mejorar emails con IA usando prompts concretos. Guía práctica para sonar profesional sin perder tu tono ni tardar más de 5 minutos.", "inLanguage": "es", "datePublished": "2026-10-27", "dateModified": "2026-10-27", "mainEntityOfPage": "https://iaforall.netlify.app/prompts/mejorar-emails-profesionales-con-ia/", "author": {"@type": "Organization", "name": "IA para todos"}, "publisher": {"@type": "Organization", "name": "IA para todos"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿La IA va a cambiar lo que quiero decir?", "acceptedAnswer": {"@type": "Answer", "text": "Puede ajustar el tono o la estructura, pero si le pides explícitamente que no añada ni elimine información del borrador original, suele respetarlo bastante bien. Aun así, lee siempre el resultado antes de enviarlo para asegurarte de que el significado sigue siendo el que tú querías."}}, {"@type": "Question", "name": "¿Qué pasa si mi borrador está muy mal escrito o es muy corto?", "acceptedAnswer": {"@type": "Answer", "text": "No importa que el borrador sea imperfecto: de hecho, para eso sirve el prompt. Pero si es muy escueto, la IA puede tener la tentación de rellenar con frases que tú no habías pensado. Por eso es útil añadir en el prompt 'no añadas información que no esté en el borrador'."}}, {"@type": "Question", "name": "¿Puedo usar esto para correos en inglés u otros idiomas?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, los asistentes de IA suelen manejar bien varios idiomas. Puedes escribir el prompt en español y el borrador en inglés, o pedirle directamente que reescriba el correo en el idioma que necesites. Si el idioma es importante para la situación, indícalo en el prompt."}}]}</script>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .guia { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.96); color: #263238; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; line-height: 1.65; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); }
+    .guia h1 { margin-top: 0; color: var(--text); line-height: 1.25; }
+    .guia h2 { color: var(--text); margin-top: 2rem; }
+    .guia h3 { color: var(--text); margin-bottom: 0.3rem; }
+    .guia a { color: var(--link); }
+    .guia .migas, .guia .meta { color: var(--muted); font-size: 0.9rem; }
+    .guia .resumen { font-size: 1.1rem; background: #e3f2fd; border-left: 4px solid var(--accent); padding: 0.8rem 1rem; border-radius: 6px; }
+    .guia .bloque { white-space: pre-wrap; word-break: break-word; background: #f5f9ff; border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem; }
+    .guia .prompt { background: #0d47a1; color: #ffffff; border-color: #0d47a1; }
+    .guia .copiar { padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid var(--accent); background: #ffffff; color: var(--text); cursor: pointer; font-weight: 600; }
+    .guia .copiar:hover { background: #e3f2fd; }
+    .guia .nota { background: #fff8e1; border-left: 4px solid #ffb300; padding: 0.8rem 1rem; border-radius: 6px; margin: 1.5rem 0; }
+    .guia .mas-guias ul { padding-left: 1.2rem; }
+    .guia .mas-guias li { margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="tagline"><a href="/">IA para todos</a> — Noticias, tutoriales, apps y prompts, en tono casual.</p>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#guias">Guías</a>
+        <a href="/#noticias">Noticias</a>
+        <a href="/#tutoriales">Tutoriales</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="guia">
+      <p class="migas"><a href="/">Inicio</a> › <a href="/#guias">Guías de prompts</a></p>
+      <h1>Mejora tus emails con IA sin sonar a robot</h1>
+      <p class="meta">Actualizado el 27 de octubre de 2026 · <span class="badge">Productividad</span></p>
+      <p class="resumen">El prompt de partida es: &#x27;Reescribe este email de forma más profesional y clara:&#x27;. Funciona, pero da resultados genéricos. Con unas pocas palabras más, puedes conseguir que la IA mantenga tu tono, se adapte al destinatario y no te deje un correo que parece escrito por un abogado de los años 90. Esta guía te explica cómo mejorar emails con IA de forma que el resultado siga sonando a ti.</p>
+      <h2>Para quién es útil</h2>
+      <p>Para cualquiera que escriba correos de trabajo y sienta que sus mensajes no quedan bien: demasiado bruscos, demasiado informales, demasiado largos, o simplemente raros. No hace falta saber nada de IA.</p>
+      <h2>Cómo funciona</h2>
+      <h3>El problema con el prompt básico</h3>
+      <p>El prompt &#x27;Reescribe este email de forma más profesional y clara:&#x27; le da a la IA demasiada libertad. Sin contexto, suele elegir un registro muy formal, añadir frases hechas como &#x27;En respuesta a su consulta&#x27; y eliminar cualquier rasgo personal. El resultado puede sonar correcto pero frío, y a veces aleja más al destinatario de lo que lo acerca.</p>
+      <h3>Qué añadir para que funcione de verdad</h3>
+      <p>Tres datos cambian mucho la respuesta: a quién va dirigido el correo, cuál es el objetivo (pedir algo, dar una mala noticia, hacer seguimiento) y qué tono quieres mantener. No es lo mismo escribirle a un cliente nuevo que a un compañero de hace cinco años. Si se lo dices a la IA, el resultado puede ajustarse a esa situación en lugar de dar una respuesta genérica para todo.</p>
+      <h3>El rol y el objetivo como anclas del prompt</h3>
+      <p>Indicarle a la IA que actúe como un profesional de comunicación y que su objetivo es que el correo sea directo y cálido a la vez le da una referencia clara de hacia dónde ir. Sin eso, la IA optimiza para &#x27;sonar formal&#x27;, que no siempre es lo mismo que &#x27;sonar profesional&#x27;. Un correo profesional puede ser perfectamente cercano.</p>
+      <h3>La parte de no tocar</h3>
+      <p>Es útil pedirle explícitamente que no cambie el significado ni añada información que tú no hayas puesto. La IA puede rellenar huecos con frases de cortesía que tú no querías, o suavizar tanto un mensaje difícil que pierda su sentido. Con la instrucción de respetar el contenido original, ese riesgo baja bastante.</p>
+      <h2>Ejemplo paso a paso</h2>
+      <p><strong>Situación:</strong> Llevas tres semanas esperando una respuesta de un proveedor. Quieres recordárselo sin quedar mal, pero tu borrador suena demasiado brusco.</p>
+      <p><strong>Lo que le pides a la IA:</strong></p>
+      <pre class="bloque">Actúa como un experto en comunicación profesional. Reescribe este email para que suene directo y cordial, sin perder el significado original. Va dirigido a [un proveedor con quien tengo buena relación]. El objetivo es [recordarle que llevo tres semanas esperando su respuesta y necesito una fecha concreta]. Mantén un tono [cercano pero firme]. No añadas información que no esté en el borrador original.
+
+Borrador: &#x27;Hola, te escribo porque todavía no he recibido respuesta. Necesito saber cuándo me vas a confirmar el pedido porque ya no puedo esperar más.&#x27;</pre>
+      <p><strong>Qué suele devolver</strong> (ejemplo ilustrativo; el resultado real varía):</p>
+      <pre class="bloque">La IA suele devolver algo parecido a esto: &#x27;Hola [nombre], espero que todo vaya bien. Te escribo porque llevamos ya tres semanas desde mi última consulta y aún no he recibido confirmación del pedido. Entiendo que estás ocupado, pero necesito una fecha concreta para poder planificar por mi parte. ¿Puedes darme una respuesta esta semana? Gracias.&#x27; El tono cambia, pero el mensaje sigue siendo el mismo. Aun así, revísalo antes de enviarlo: puede que alguna frase no encaje con tu relación real con esa persona.</pre>
+      <h2>El prompt listo para copiar</h2>
+      <div class="copiable">
+        <pre id="prompt-principal" class="bloque prompt">Actúa como un experto en comunicación profesional. Reescribe este email para que suene [directo y cordial / empático / firme pero respetuoso]. Va dirigido a [describe quién es el destinatario, por ejemplo: un cliente nuevo, mi jefe, un proveedor habitual]. El objetivo del correo es [explica qué quieres conseguir: pedir una reunión, dar una mala noticia, hacer seguimiento de algo]. Mantén un tono [cercano / formal / neutro] y no añadas información que no esté en el borrador original.
+
+Borrador: [pega aquí tu correo]</pre>
+        <button type="button" class="copiar" data-target="prompt-principal">Copiar prompt</button>
+      </div>
+      <h2>Variantes para otros casos</h2>
+      <h3>Para dar malas noticias sin que parezca un drama</h3>
+      <div class="copiable">
+        <pre id="variante-1" class="bloque prompt">Actúa como un experto en comunicación profesional. Reescribe este email para que transmita una noticia negativa de forma clara y empática, sin minimizar el problema ni exagerar. Va dirigido a [cliente / compañero / proveedor]. El objetivo es [explicar un retraso / cancelar algo / comunicar un error]. No añadas disculpas ni compromisos que no estén en el borrador.
+
+Borrador: [pega aquí tu correo]</pre>
+        <button type="button" class="copiar" data-target="variante-1">Copiar prompt</button>
+      </div>
+      <h3>Para pedir algo sin parecer pesado</h3>
+      <div class="copiable">
+        <pre id="variante-2" class="bloque prompt">Actúa como un experto en comunicación profesional. Reescribe este email para que la petición quede clara y sea fácil de responder, sin sonar exigente. Va dirigido a [describe al destinatario]. Solo necesito que reformules el mensaje, no añadas justificaciones ni información nueva.
+
+Borrador: [pega aquí tu correo]</pre>
+        <button type="button" class="copiar" data-target="variante-2">Copiar prompt</button>
+      </div>
+      <h3>Para acortar un email que se ha ido de las manos</h3>
+      <div class="copiable">
+        <pre id="variante-3" class="bloque prompt">Actúa como un experto en comunicación profesional. Resume y reescribe este email para que ocupe la mitad, manteniendo todos los puntos importantes. Va dirigido a [describe al destinatario]. El objetivo es [lo que quieres conseguir con el correo]. No elimines ningún dato clave, solo lo que es redundante.
+
+Borrador: [pega aquí tu correo]</pre>
+        <button type="button" class="copiar" data-target="variante-3">Copiar prompt</button>
+      </div>
+      <h2>Errores comunes</h2>
+      <ul>
+        <li>Pegar el borrador sin contexto y esperar que la IA adivine a quién va dirigido o qué quieres conseguir: el resultado suele ser demasiado genérico para usarlo tal cual.</li>
+        <li>Aceptar la primera versión sin releerla: la IA puede añadir frases de cortesía que tú no habías puesto, cambiar matices importantes o suavizar tanto un mensaje que pierda su punto.</li>
+        <li>Usar el prompt para correos con información confidencial, datos personales de terceros o contenido legal delicado: mejor evitarlo o anonimizar antes de pegar.</li>
+        <li>Pedirle que suene &#x27;más profesional&#x27; sin aclarar qué significa eso para ti: profesional puede ser muy formal o simplemente claro y directo, y la IA no sabe cuál prefieres si no se lo dices.</li>
+      </ul>
+      <h2>Cuándo no usarlo</h2>
+      <p>Si el correo contiene datos sensibles, información confidencial de tu empresa o de otras personas, o tiene implicaciones legales o contractuales, no lo pegues en un asistente de IA sin revisar antes la política de privacidad de la herramienta. Tampoco es la mejor opción si el mensaje requiere un conocimiento muy específico del contexto, como una negociación delicada con historial largo: la IA no tiene ese contexto y puede sugerir un tono que no encaje con la situación real.</p>
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿La IA va a cambiar lo que quiero decir?</h3>
+      <p>Puede ajustar el tono o la estructura, pero si le pides explícitamente que no añada ni elimine información del borrador original, suele respetarlo bastante bien. Aun así, lee siempre el resultado antes de enviarlo para asegurarte de que el significado sigue siendo el que tú querías.</p>
+      <h3>¿Qué pasa si mi borrador está muy mal escrito o es muy corto?</h3>
+      <p>No importa que el borrador sea imperfecto: de hecho, para eso sirve el prompt. Pero si es muy escueto, la IA puede tener la tentación de rellenar con frases que tú no habías pensado. Por eso es útil añadir en el prompt &#x27;no añadas información que no esté en el borrador&#x27;.</p>
+      <h3>¿Puedo usar esto para correos en inglés u otros idiomas?</h3>
+      <p>Sí, los asistentes de IA suelen manejar bien varios idiomas. Puedes escribir el prompt en español y el borrador en inglés, o pedirle directamente que reescriba el correo en el idioma que necesites. Si el idioma es importante para la situación, indícalo en el prompt.</p>
+      <!-- REL:START -->
+      <div class="mas-guias">
+        <h2>Más guías</h2>
+        <ul>
+          <li><a href="/prompts/resumir-textos-largos-con-ia/">Resumir textos con IA sin perder nada clave</a> — Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo.</li>
+        </ul>
+      </div>
+      <!-- REL:END -->
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>¿Tienes algo que contarme? Escríbeme a mi buzón:
+        <a href="mailto:cacharritos2002@gmail.com">cacharritos2002@gmail.com</a>
+      </p>
+      <p class="small">Hecho con cariño y café ☕️ — IA sin complicaciones.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copiar').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var el = document.getElementById(b.dataset.target);
+        if (!el || !navigator.clipboard) return;
+        navigator.clipboard.writeText(el.textContent).then(function () {
+          var t = b.textContent;
+          b.textContent = '¡Copiado!';
+          setTimeout(function () { b.textContent = t; }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
