@@ -152,6 +152,10 @@ PLANTILLA = """<!doctype html>
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPVZG4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <header class="site-header">
     <div class="container">
       <p class="tagline"><a href="/">IA para todos</a> — Noticias, tutoriales, apps y prompts, en tono casual.</p>
