@@ -19,5 +19,12 @@
     "descripcion": "Aprende a generar ideas de contenido con IA para redes y blog con un prompt que va más allá de la lista genérica de siempre.",
     "categoria": "Creatividad",
     "fecha": "2026-11-05"
+  },
+  {
+    "slug": "traducir-textos-con-ia-manteniendo-el-tono",
+    "titulo": "Traducir textos con IA sin perder el tono",
+    "descripcion": "Aprende a traducir textos con IA de forma que suenen naturales y conserven el estilo original, con prompts concretos y ejemplos reales.",
+    "categoria": "Idiomas",
+    "fecha": "2026-11-21"
   }
 ]
