@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KPVZG4K6');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traducir textos con IA sin perder el tono | IA para todos</title>
+  <meta name="description" content="Aprende a traducir textos con IA de forma que suenen naturales y conserven el estilo original, con prompts concretos y ejemplos reales." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://iaforall.netlify.app/prompts/traducir-textos-con-ia-manteniendo-el-tono/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://iaforall.netlify.app/prompts/traducir-textos-con-ia-manteniendo-el-tono/" />
+  <meta property="og:title" content="Traducir textos con IA sin perder el tono" />
+  <meta property="og:description" content="Aprende a traducir textos con IA de forma que suenen naturales y conserven el estilo original, con prompts concretos y ejemplos reales." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="IA para todos" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Traducir textos con IA sin perder el tono" />
+  <meta name="twitter:description" content="Aprende a traducir textos con IA de forma que suenen naturales y conserven el estilo original, con prompts concretos y ejemplos reales." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Traducir textos con IA sin perder el tono", "description": "Aprende a traducir textos con IA de forma que suenen naturales y conserven el estilo original, con prompts concretos y ejemplos reales.", "inLanguage": "es", "datePublished": "2026-11-21", "dateModified": "2026-11-21", "mainEntityOfPage": "https://iaforall.netlify.app/prompts/traducir-textos-con-ia-manteniendo-el-tono/", "author": {"@type": "Organization", "name": "IA para todos"}, "publisher": {"@type": "Organization", "name": "IA para todos"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Puedo usar esto para cualquier idioma o solo funciona bien con inglés?", "acceptedAnswer": {"@type": "Answer", "text": "Con los idiomas más comunes, como inglés, francés, alemán o portugués, suele funcionar razonablemente bien. Con idiomas menos representados en los datos de entrenamiento de los modelos, el resultado puede ser menos fiable, especialmente en matices de tono o expresiones coloquiales. Si tienes dudas, pide a la IA que te explique las decisiones que ha tomado y contrástalo si puedes."}}, {"@type": "Question", "name": "¿Qué hago si el tono del texto original es difícil de describir?", "acceptedAnswer": {"@type": "Answer", "text": "Puedes darle un ejemplo de referencia: un texto del mismo estilo que sí sabes cómo suena en el idioma de destino, o decirle a qué se parece, por ejemplo 'el tono de un correo de empresa tecnológica como Notion o Basecamp'. También puedes pedirle que haga dos versiones con registros ligeramente distintos y quedarte con la que mejor encaje."}}, {"@type": "Question", "name": "¿La IA traduce igual de bien un texto largo que uno corto?", "acceptedAnswer": {"@type": "Answer", "text": "Con textos cortos es más fácil mantener la coherencia de tono a lo largo de todo el texto. En textos largos, es posible que el registro varíe un poco entre el principio y el final, o que la IA pierda el hilo de alguna instrucción específica. Si tienes un texto largo, puede ir mejor dividirlo en bloques y traducir por partes, recordando el contexto en cada prompt."}}]}</script>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .guia { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.96); color: #263238; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; line-height: 1.65; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2); }
+    .guia h1 { margin-top: 0; color: var(--text); line-height: 1.25; }
+    .guia h2 { color: var(--text); margin-top: 2rem; }
+    .guia h3 { color: var(--text); margin-bottom: 0.3rem; }
+    .guia a { color: var(--link); }
+    .guia .migas, .guia .meta { color: var(--muted); font-size: 0.9rem; }
+    .guia .resumen { font-size: 1.1rem; background: #e3f2fd; border-left: 4px solid var(--accent); padding: 0.8rem 1rem; border-radius: 6px; }
+    .guia .bloque { white-space: pre-wrap; word-break: break-word; background: #f5f9ff; border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92rem; line-height: 1.5; margin: 0.5rem 0 1rem; }
+    .guia .prompt { background: #0d47a1; color: #ffffff; border-color: #0d47a1; }
+    .guia .copiar { padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid var(--accent); background: #ffffff; color: var(--text); cursor: pointer; font-weight: 600; }
+    .guia .copiar:hover { background: #e3f2fd; }
+    .guia .nota { background: #fff8e1; border-left: 4px solid #ffb300; padding: 0.8rem 1rem; border-radius: 6px; margin: 1.5rem 0; }
+    .guia .mas-guias ul { padding-left: 1.2rem; }
+    .guia .mas-guias li { margin: 0.4rem 0; }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPVZG4K6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header class="site-header">
+    <div class="container">
+      <p class="tagline"><a href="/">IA para todos</a> — Noticias, tutoriales, apps y prompts, en tono casual.</p>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#guias">Guías</a>
+        <a href="/#noticias">Noticias</a>
+        <a href="/#tutoriales">Tutoriales</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="guia">
+      <p class="migas"><a href="/">Inicio</a> › <a href="/#guias">Guías de prompts</a></p>
+      <h1>Traducir textos con IA sin perder el tono</h1>
+      <p class="meta">Actualizado el 21 de noviembre de 2026 · <span class="badge">Idiomas</span></p>
+      <p class="resumen">El prompt de partida, &#x27;Traduce el siguiente texto al inglés manteniendo el tono y estilo original:&#x27;, funciona, pero es demasiado vago para que la IA sepa qué tono tiene tu texto. Si añades contexto, el destinatario y una pista sobre el registro, el resultado suele ser bastante más útil. La clave está en darle a la IA la información que tú ya tienes en la cabeza pero no escribes.</p>
+      <h2>Para quién es útil</h2>
+      <p>Para quien traduce correos de trabajo, publicaciones de redes sociales o textos de cliente y no quiere que el resultado suene a traducción automática de los años noventa.</p>
+      <h2>Cómo funciona</h2>
+      <h3>El problema del prompt mínimo</h3>
+      <p>Cuando le dices a un asistente de IA &#x27;Traduce el siguiente texto al inglés manteniendo el tono y estilo original:&#x27;, el asistente no sabe si tu texto es un correo formal a un proveedor, un mensaje cercano a un colega o una descripción de producto con mucho copywriting detrás. Sin esa información, la IA toma decisiones por su cuenta y es fácil que elija un registro distinto al que necesitas. No es que falle: es que no tiene suficientes datos.</p>
+      <h3>Qué añadir y por qué</h3>
+      <p>El prompt mejorado le da a la IA tres cosas que le faltan: quién escribe (o para qué marca o proyecto), quién lo va a leer y qué tono tiene el original. Por ejemplo, si le dices que el texto es un correo profesional pero cercano, dirigido a un cliente angloparlante de una empresa tecnológica, la IA puede calibrar cosas como si usar contracciones en inglés (do not vs. don&#x27;t), si mantener cierta informalidad o si estructurar las frases de forma más directa, como suele hacerse en inglés de negocios. Si quitas esa descripción del tono, el resultado puede ser correcto gramaticalmente pero sonar más rígido o más informal de lo que toca.</p>
+      <h3>El papel del destinatario</h3>
+      <p>Especificar quién va a leer la traducción no es un detalle menor. El inglés que espera un cliente estadounidense de una startup no es el mismo que el de un informe para un organismo europeo. Cuando le das ese contexto a la IA, es más probable que adapte el vocabulario, la longitud de las frases y hasta la puntuación a lo que ese lector espera. Sin este dato, el asistente suele tirar hacia un inglés estándar que no es malo, pero tampoco es el tuyo.</p>
+      <h3>Pide que te señale las decisiones</h3>
+      <p>Un añadido muy útil es pedirle que indique dónde ha tomado decisiones de adaptación. Así puedes revisar exactamente esos puntos en vez de releer todo el texto desde cero. No es que eso garantice que el resultado sea perfecto, pero sí te ahorra tiempo y te da control sobre lo que más importa.</p>
+      <h2>Ejemplo paso a paso</h2>
+      <p><strong>Situación:</strong> Tienes que enviar a un cliente inglés un correo en el que rechazas amablemente una propuesta. El original en español es directo pero cordial, y no quieres que la traducción suene ni agresiva ni excesivamente formal.</p>
+      <p><strong>Lo que le pides a la IA:</strong></p>
+      <pre class="bloque">Traduce este correo al inglés. Es un mensaje profesional pero cercano, dirigido a un cliente de una empresa de diseño en Reino Unido. El tono es directo y amable: quiero decir que no podemos aceptar la propuesta, pero sin que suene brusco ni distante. Señala al final qué decisiones de adaptación has tomado.
+
+Texto: &#x27;Hola Tom, muchas gracias por compartir la propuesta. La hemos revisado con detalle y, aunque nos parece muy interesante el enfoque, en este momento no encaja con la dirección que estamos tomando. Esperamos que podamos encontrar otra oportunidad de colaborar pronto. Un saludo.&#x27;</pre>
+      <p><strong>Qué suele devolver</strong> (ejemplo ilustrativo; el resultado real varía):</p>
+      <pre class="bloque">El asistente puede devolver algo como: &#x27;Hi Tom, thank you so much for sharing the proposal. We have reviewed it carefully and, while we really like the approach, it does not fit the direction we are currently taking. We hope we can find another opportunity to work together soon. Best.&#x27; Y a continuación una nota indicando que ha usado contracciones para mantener el tono cercano, que ha cambiado &#x27;Un saludo&#x27; por &#x27;Best&#x27; por ser más habitual en el contexto británico de negocios, y que ha evitado fórmulas más formales como &#x27;We regret to inform you&#x27; para no sonar distante.</pre>
+      <h2>El prompt listo para copiar</h2>
+      <div class="copiable">
+        <pre id="prompt-principal" class="bloque prompt">Traduce el siguiente texto al [idioma de destino]. Contexto: [describe brevemente quién escribe o para qué proyecto es el texto]. Destinatario: [describe quién lo va a leer y en qué contexto]. Tono del original: [describe el registro, por ejemplo: directo y amable, formal pero no rígido, cercano e informal]. Prioriza que suene natural en [idioma de destino] por encima de la literalidad, y al final señala las decisiones de adaptación que hayas tomado.
+
+Texto: [pega aquí tu texto]</pre>
+        <button type="button" class="copiar" data-target="prompt-principal">Copiar prompt</button>
+      </div>
+      <h2>Variantes para otros casos</h2>
+      <h3>Para redes sociales o contenido de marca</h3>
+      <div class="copiable">
+        <pre id="variante-1" class="bloque prompt">Traduce el siguiente texto al [idioma de destino] para publicarlo en [red social o canal]. Es contenido de [nombre o tipo de marca], que tiene un tono [describe el tono: desenfadado, inspirador, irónico...]. Que suene como lo escribiría una persona, no como una traducción. Señala si has adaptado alguna expresión que no funciona tal cual en [idioma de destino].
+
+Texto: [pega aquí tu texto]</pre>
+        <button type="button" class="copiar" data-target="variante-1">Copiar prompt</button>
+      </div>
+      <h3>Para documentos técnicos o especializados</h3>
+      <div class="copiable">
+        <pre id="variante-2" class="bloque prompt">Traduce el siguiente texto al [idioma de destino]. Es un documento de tipo [informe, manual, ficha técnica...] dirigido a [describe el perfil del lector: técnicos, directivos, usuarios sin conocimientos previos...]. Mantén la terminología específica del sector [indica el sector si es relevante] y prioriza la claridad. Si hay términos que no tienen equivalente directo, indica las opciones posibles.
+
+Texto: [pega aquí tu texto]</pre>
+        <button type="button" class="copiar" data-target="variante-2">Copiar prompt</button>
+      </div>
+      <h3>Para revisar una traducción ya hecha</h3>
+      <div class="copiable">
+        <pre id="variante-3" class="bloque prompt">Tengo este texto en [idioma de destino] que es una traducción de un original en [idioma de origen]. Revísalo y corrige lo que suene poco natural o demasiado literal, sin cambiar el significado. El tono que debería tener es [describe el tono]. Muéstrame los cambios que hagas y explica brevemente por qué.
+
+Traducción: [pega aquí tu texto]</pre>
+        <button type="button" class="copiar" data-target="variante-3">Copiar prompt</button>
+      </div>
+      <h2>Errores comunes</h2>
+      <ul>
+        <li>Pegar el texto sin ningún contexto y esperar que la IA adivine el tono: casi siempre devuelve algo correcto pero genérico.</li>
+        <li>Describir el tono con palabras demasiado vagas como &#x27;natural&#x27; o &#x27;bueno&#x27;: cuanto más concreto seas, más útil es el resultado.</li>
+        <li>No revisar los fragmentos donde la IA ha tomado decisiones de adaptación, especialmente en expresiones idiomáticas o referencias culturales que pueden no tener equivalente directo.</li>
+        <li>Usar el resultado directamente en comunicaciones importantes sin leerlo: la IA puede cometer errores sutiles de registro o de matiz que solo detectas tú.</li>
+      </ul>
+      <h2>Cuándo no usarlo</h2>
+      <p>Si el texto tiene implicaciones legales, médicas o financieras, el resultado de la IA puede servir para que entiendas el contenido o prepares una versión de trabajo, pero no para usarlo directamente sin que lo revise alguien con conocimiento del área y del idioma. Lo mismo aplica si el texto tiene una voz muy personal o literaria: la IA puede acercarse, pero es fácil que pierda matices que un traductor humano sí captaría.</p>
+      <h2>Preguntas frecuentes</h2>
+      <h3>¿Puedo usar esto para cualquier idioma o solo funciona bien con inglés?</h3>
+      <p>Con los idiomas más comunes, como inglés, francés, alemán o portugués, suele funcionar razonablemente bien. Con idiomas menos representados en los datos de entrenamiento de los modelos, el resultado puede ser menos fiable, especialmente en matices de tono o expresiones coloquiales. Si tienes dudas, pide a la IA que te explique las decisiones que ha tomado y contrástalo si puedes.</p>
+      <h3>¿Qué hago si el tono del texto original es difícil de describir?</h3>
+      <p>Puedes darle un ejemplo de referencia: un texto del mismo estilo que sí sabes cómo suena en el idioma de destino, o decirle a qué se parece, por ejemplo &#x27;el tono de un correo de empresa tecnológica como Notion o Basecamp&#x27;. También puedes pedirle que haga dos versiones con registros ligeramente distintos y quedarte con la que mejor encaje.</p>
+      <h3>¿La IA traduce igual de bien un texto largo que uno corto?</h3>
+      <p>Con textos cortos es más fácil mantener la coherencia de tono a lo largo de todo el texto. En textos largos, es posible que el registro varíe un poco entre el principio y el final, o que la IA pierda el hilo de alguna instrucción específica. Si tienes un texto largo, puede ir mejor dividirlo en bloques y traducir por partes, recordando el contexto en cada prompt.</p>
+      <!-- REL:START -->
+      <div class="mas-guias">
+        <h2>Más guías</h2>
+        <ul>
+          <li><a href="/prompts/ideas-de-contenido-con-ia/">Ideas de contenido con IA: más y mejores</a> — Aprende a generar ideas de contenido con IA para redes y blog con un prompt que va más allá de la lista genérica de siempre.</li>
+          <li><a href="/prompts/mejorar-emails-profesionales-con-ia/">Mejora tus emails con IA sin sonar a robot</a> — Aprende a mejorar emails con IA usando prompts concretos. Guía práctica para sonar profesional sin perder tu tono ni tardar más de 5 minutos.</li>
+          <li><a href="/prompts/resumir-textos-largos-con-ia/">Resumir textos con IA sin perder nada clave</a> — Aprende a resumir textos con IA de forma útil y precisa. Guía práctica con prompts para estudiantes y profesionales con poco tiempo.</li>
+        </ul>
+      </div>
+      <!-- REL:END -->
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>¿Tienes algo que contarme? Escríbeme a mi buzón:
+        <a href="mailto:cacharritos2002@gmail.com">cacharritos2002@gmail.com</a>
+      </p>
+      <p class="small">Hecho con cariño y café ☕️ — IA sin complicaciones.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copiar').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var el = document.getElementById(b.dataset.target);
+        if (!el || !navigator.clipboard) return;
+        navigator.clipboard.writeText(el.textContent).then(function () {
+          var t = b.textContent;
+          b.textContent = '¡Copiado!';
+          setTimeout(function () { b.textContent = t; }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
